@@ -1,0 +1,1584 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>국내 극손상모 헤어케어 상품 리서치</title>
+  <style>
+    :root {
+      --bg: #f9fafb;
+      --surface: #ffffff;
+      --surface-muted: #f2f4f6;
+      --line: #e5e8eb;
+      --line-strong: #d8d8dd;
+      --text-strong: #19191a;
+      --text-normal: #303033;
+      --text-neutral: #757582;
+      --text-subtle: #a4a4af;
+      --primary: #19191a;
+      --link: #2563eb;
+      --sale: #ff4800;
+      --success: #16a34a;
+      --warning-bg: #fef9c3;
+      --warning-text: #854d0e;
+      --danger-bg: #fff3f0;
+      --danger-text: #b91c1c;
+      --radius-s: 4px;
+      --radius-m: 8px;
+      --radius-l: 12px;
+      --shadow-pop: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      font-family: Pretendard, "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      word-break: keep-all;
+      color: var(--text-normal);
+      background: var(--bg);
+      letter-spacing: 0;
+    }
+
+    body {
+      margin: 0;
+      min-width: 1180px;
+      overflow-x: hidden;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    .app {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .top-inner {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 24px 30px 20px;
+    }
+
+    .eyebrow {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--text-neutral);
+      font-size: 13px;
+      line-height: 18px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--text-strong);
+      font-size: 28px;
+      line-height: 39px;
+      font-weight: 800;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      margin: 8px 0 0;
+      color: var(--text-neutral);
+      font-size: 14px;
+      line-height: 20px;
+      text-wrap: pretty;
+    }
+
+    .summary {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 18px 30px 10px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      padding: 16px;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--text-neutral);
+      font-size: 12px;
+      line-height: 17px;
+      margin-bottom: 6px;
+    }
+
+    .metric strong {
+      color: var(--text-strong);
+      font-size: 22px;
+      line-height: 31px;
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .controls {
+      max-width: 1680px;
+      margin: 0 auto;
+      padding: 8px 30px 16px;
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search {
+      height: 40px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-m);
+      background: var(--surface);
+      padding: 0 12px;
+      color: var(--text-strong);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: #60a5fa;
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.16);
+    }
+
+    .select {
+      height: 40px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-m);
+      background: var(--surface);
+      padding: 0 32px 0 12px;
+      color: var(--text-strong);
+    }
+
+    .btn {
+      height: 40px;
+      border: 0;
+      border-radius: var(--radius-m);
+      background: var(--primary);
+      color: #fff;
+      padding: 0 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .content {
+      max-width: 1680px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 0 30px 40px;
+      min-width: 0;
+      overflow-x: hidden;
+    }
+
+    .table-wrap {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      max-height: calc(100vh - 272px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      background: var(--surface);
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1980px;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: fixed;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: var(--surface-muted);
+      color: var(--text-strong);
+      border-bottom: 1px solid var(--line-strong);
+      border-right: 1px solid var(--line);
+      padding: 10px 10px;
+      font-size: 12px;
+      line-height: 17px;
+      font-weight: 800;
+      text-align: left;
+      vertical-align: bottom;
+    }
+
+    thead th:first-child,
+    thead th:nth-child(2) {
+      z-index: 8;
+    }
+
+    th.sortable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    th.sortable::after {
+      content: "↕";
+      margin-left: 6px;
+      color: var(--text-subtle);
+      font-weight: 700;
+    }
+
+    th.sortable.active.asc::after { content: "↑"; color: var(--text-strong); }
+    th.sortable.active.desc::after { content: "↓"; color: var(--text-strong); }
+
+    th.draggable-col {
+      cursor: grab;
+    }
+
+    th.draggable-col:active {
+      cursor: grabbing;
+    }
+
+    th.dragging {
+      opacity: 0.55;
+    }
+
+    th.drop-target {
+      box-shadow: inset 3px 0 0 var(--link), 1px 0 0 var(--line);
+    }
+
+    tbody td {
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      padding: 12px 10px;
+      font-size: 13px;
+      line-height: 19px;
+      vertical-align: top;
+      background: var(--surface);
+      text-wrap: pretty;
+    }
+
+    tbody tr:hover td {
+      background: #fcfcfd;
+    }
+
+    thead th:first-child,
+    tbody td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 4;
+      background: var(--surface);
+      box-shadow: 1px 0 0 var(--line);
+    }
+
+    thead th:first-child {
+      z-index: 9;
+      background: var(--surface-muted);
+    }
+
+    thead th:nth-child(2),
+    tbody td:nth-child(2) {
+      position: sticky;
+      left: 92px;
+      z-index: 4;
+      background: var(--surface);
+      box-shadow: 1px 0 0 var(--line);
+    }
+
+    thead th:nth-child(2) {
+      z-index: 9;
+      background: var(--surface-muted);
+    }
+
+    tbody tr:hover td:first-child,
+    tbody tr:hover td:nth-child(2) {
+      background: #fcfcfd;
+    }
+
+    .img {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-m);
+      border: 1px solid var(--line);
+      background: var(--surface-muted);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      color: var(--text-neutral);
+      font-size: 11px;
+      line-height: 15px;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .img-link {
+      display: block;
+      width: 72px;
+      height: 72px;
+      border-radius: var(--radius-m);
+      outline: none;
+    }
+
+    .img-link:focus-visible {
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+    }
+
+    .img-link:hover .img {
+      border-color: #93c5fd;
+    }
+
+    .img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product strong {
+      display: block;
+      color: var(--text-strong);
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .product span {
+      display: block;
+      color: var(--text-neutral);
+      font-size: 12px;
+      line-height: 17px;
+    }
+
+    .num {
+      color: var(--text-strong);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .muted {
+      color: var(--text-neutral);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .link-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .channel-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border-radius: 999px;
+      border: 1px solid #dbeafe;
+      background: #eff6ff;
+      color: var(--link);
+      padding: 4px 10px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .channel-link.official {
+      border-color: var(--line);
+      background: #fff;
+      color: var(--text-strong);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text-normal);
+      padding: 2px 8px;
+      font-size: 11px;
+      line-height: 16px;
+      font-weight: 700;
+    }
+
+    .tag.sale { color: var(--sale); border-color: #ffd6c8; background: #fff3f0; }
+    .tag.good { color: var(--success); border-color: #bbf7d0; background: #dcfce7; }
+    .tag.warn { color: var(--warning-text); border-color: #fef9c3; background: var(--warning-bg); }
+    .tag.danger { color: var(--danger-text); border-color: #ffd6c8; background: var(--danger-bg); }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-m);
+      background: var(--surface-muted);
+      padding: 8px 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--text-strong);
+      font-weight: 800;
+      font-size: 12px;
+      line-height: 17px;
+    }
+
+    .detail-grid {
+      margin-top: 8px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .detail-block {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-s);
+      padding: 8px;
+    }
+
+    .detail-block b {
+      display: block;
+      color: var(--text-strong);
+      margin-bottom: 3px;
+      font-size: 12px;
+      line-height: 17px;
+    }
+
+    .detail-block p {
+      margin: 0;
+      color: var(--text-normal);
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    .clinical {
+      display: grid;
+      gap: 8px;
+    }
+
+    .clinical p {
+      margin: 0;
+    }
+
+    .clinical b {
+      color: var(--text-strong);
+      font-weight: 800;
+    }
+
+    .clinical ul,
+    .clinical ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .clinical li + li {
+      margin-top: 4px;
+    }
+
+    .clinical details {
+      margin-top: 2px;
+    }
+
+    .clinical-test {
+      padding: 8px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .clinical-test:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .clinical-test strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text-strong);
+    }
+
+    .clinical-meta {
+      display: grid;
+      gap: 3px;
+      color: var(--text-normal);
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    .footer {
+      margin-top: 18px;
+      color: var(--text-neutral);
+      font-size: 12px;
+      line-height: 18px;
+    }
+
+    @media (max-width: 430px) {
+      body { min-width: 0; }
+      .app { min-width: 0; }
+      .top-inner, .summary, .controls, .content { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 22px; line-height: 31px; }
+      .summary { grid-template-columns: 1fr; }
+      .controls { grid-template-columns: 1fr; }
+      table { min-width: 1800px; }
+      .table-wrap { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="top-inner">
+        <div class="eyebrow">오롯헤어 사업계획서 8~12페이지 기반 · 2026.07.07 리서치</div>
+        <h1>국내 극손상모 고객이 실제 비교하는 헤어케어 상품</h1>
+      </div>
+    </header>
+
+    <section class="summary" aria-label="요약 지표">
+      <div class="metric"><span>분석 상품</span><strong id="metricCount">15개</strong></div>
+      <div class="metric"><span>wash-off</span><strong id="metricWash">0개</strong></div>
+      <div class="metric"><span>leave-in</span><strong id="metricLeave">0개</strong></div>
+      <div class="metric"><span>실리콘/유사 성분 확인</span><strong id="metricSilicone">0개</strong></div>
+      <div class="metric"><span>평균 100ml/g당</span><strong id="metricAvg">0원</strong></div>
+    </section>
+
+    <section class="controls" aria-label="검색과 필터">
+      <input class="search" id="search" placeholder="브랜드, 제품명, 성분, 인식 키워드로 검색" />
+      <select class="select" id="typeFilter">
+        <option value="">전체 타입</option>
+        <option value="wash-off">wash-off</option>
+        <option value="leave-in">leave-in</option>
+      </select>
+      <select class="select" id="siliconeFilter">
+        <option value="">실리콘 전체</option>
+        <option value="yes">실리콘 있음</option>
+        <option value="no">실리콘 확인 안 됨</option>
+        <option value="unknown">확인 필요</option>
+      </select>
+      <button class="btn" id="reset">필터 초기화</button>
+    </section>
+
+    <main class="content">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr id="headerRow"></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+      <p class="footer">
+        금액은 2026.07.07 현재 검색·공식/유통 페이지에서 확인된 기준입니다. 행사가는 채널과 날짜에 따라 달라질 수 있어, 아티팩트에는 확인 채널과 검증 상태를 함께 남겼습니다.
+      </p>
+    </main>
+  </div>
+
+  <script>
+    const products = [
+      {
+        image: "assets/orot-hair-products/tsubaki.jpg",
+        brand: "츠바키",
+        name: "프리미엄 EX 리페어 마스크 180g",
+        slideName: "츠바키 프리미엄 EX 리페어 마스크",
+        listPrice: 18000,
+        salePrice: 14400,
+        volume: "180g",
+        volumeValue: 180,
+        per100: 8000,
+        type: "wash-off",
+        url: "https://chicor.com/goods/0000000123545",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000216973" },
+          { label: "무신사", href: "https://www.musinsa.com/products/2791161" },
+          { label: "시코르", href: "https://chicor.com/goods/0000000123545" }
+        ],
+        perception: "올리브영·시코르 등에서 접근성이 높은 일본계 헤어팩으로, ‘즉각 부드러움’과 향 지속력 이미지가 강합니다. 극손상모가 피노·마블 헤어팩과 함께 비교하는 대중형 고영양 마스크입니다.",
+        positive: "‘바르자마자 물미역처럼 미끄러진다’, ‘헹굴 때 손에 걸리는 게 없다’, ‘드라이 후 매직한 것처럼 차분하다’는 즉각 효과 리뷰가 많습니다. 플로럴 계열 향, 바로 헹궈도 되는 사용성, 주 1~2회 홈케어로 쓰기 좋다는 점도 반복됩니다.",
+        negative: "짧게 방치하면 린스와 큰 차이를 못 느낀다는 의견이 있고, 단지형이라 손으로 퍼야 하는 점을 번거롭게 봅니다. 모발 상태에 따라 초반에는 좋다가 장기 사용 시 효과가 둔해졌다는 반응, 180g 용량이 아쉽다는 반응도 보입니다.",
+        clinical: "상세/광고 소재에서 ‘인체적용시험으로 확인된 6대 극손상모 개선 효과’ 문구가 확인됩니다. 세부 항목은 모발 윤기, 큐티클 거칠기, 갈라진 큐티클/모발 끝 개선 등 손상모 표면 개선 중심으로 노출되며, 시험기관·기간·대상자 수는 현재 확인한 공개 텍스트에는 미노출입니다.",
+        manufacturer: "파인투데이",
+        seller: "파인투데이코리아㈜",
+        siliconeStatus: "yes",
+        silicone: "다이메티콘 확인. 검색 스니펫 기준이며 상세 전성분 재확인이 필요합니다.",
+        functionRead: "실리콘 컨디셔닝막 + 보습/아미노산계 성분으로 엉킴 완화, 윤기, 즉각적 매끄러움에 초점이 있습니다.",
+        achievement: "올리브영 상품명에서 ‘올영1등 헤어팩’으로 노출됩니다. 글로우픽에서는 2024 글로우픽 어워드 선정 및 어워드 8회 수상 이력이 확인됩니다.",
+        model: "이성경",
+        confidence: "가격·제조/책임판매: 확인. 전성분 전체: 보강 필요.",
+        sources: ["CHICOR 가격/전성분 스니펫", "롯데마트 제타 상품고시"]
+      },
+      {
+        image: "assets/orot-hair-products/unove.png",
+        brand: "어노브",
+        name: "딥 데미지 리페어 헤어 마스크 320ml",
+        slideName: "어노브 딥 데미지 리페어 헤어 마스크",
+        listPrice: 42000,
+        salePrice: 29800,
+        volume: "320ml",
+        volumeValue: 320,
+        per100: 4656,
+        type: "wash-off",
+        url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000171423",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000171423" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EC%96%B4%EB%85%B8%EB%B8%8C-%EB%94%A5-%EB%8D%B0%EB%AF%B8%EC%A7%80-%ED%97%A4%EC%96%B4-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8-EX-%ED%85%90%EB%8D%94-%EB%B8%94%EB%A3%B8/1952179" },
+          { label: "무신사", href: "https://www.musinsa.com/products/2710029" },
+          { label: "자사몰", href: "https://unoveofficial.com/product/%EB%8C%80%EC%9A%A9%EB%9F%89%EC%96%B4%EB%85%B8%EB%B8%8C-%EB%94%A5-%EB%8D%B0%EB%AF%B8%EC%A7%80-%EB%A6%AC%ED%8E%98%EC%96%B4-%ED%97%A4%EC%96%B4-%EB%A7%88%EC%8A%A4%ED%81%AC-320ml/18/" }
+        ],
+        perception: "손상모 트리트먼트의 대표 대중 SKU로 인식됩니다. ‘4년 연속 1위’ 문구와 대용량·향 선택 옵션이 강한 구매 이유입니다.",
+        positive: "헹굴 때부터 부드러움이 바로 느껴지고, 엉킨 머리가 잘 풀리며 드라이 후 차분해진다는 리뷰가 많습니다. 대용량이라 듬뿍 쓰기 좋고 향이 오래 남아 ‘살롱에서 관리받은 느낌’이라는 평가가 반복됩니다.",
+        negative: "향이 강해 민감한 사람에게는 호불호가 있고, 되직한 제형이라 끝까지 짜기 어렵다는 불만이 있습니다. 얇은 모발이나 지성 두피는 무겁거나 목·등 트러블이 생겼다는 반응, 기대만큼 드라이 후 푸석함이 잡히지 않았다는 반응도 있습니다.",
+        clinical: "어노브 공식/광고 소재 기준 한국피부과학연구원 인체적용시험이 확인됩니다. 시험대상자 23명, 사용 전과 3회 사용 후 비교로 큐티클 거칠기 감소를 확인했고, 별도 사용자 만족도 설문 평가도 노출됩니다. 상세 소재에는 ‘개인차 있음’ 고지가 함께 붙습니다.",
+        manufacturer: "㈜서울화장품",
+        seller: "㈜와이어트",
+        siliconeStatus: "yes",
+        silicone: "다이메티콘, 아모다이메티콘 확인.",
+        functionRead: "글리세린·지방알코올·양이온 컨디셔닝 성분·실리콘·가수분해 단백질 조합으로 윤활감, 코팅감, 엉킴 완화, 단백질 보강 인상을 줍니다.",
+        achievement: "어노브는 2022~2025 올리브영 어워즈 헤어케어 부문 수상 브랜드입니다. 딥 데미지 트리트먼트 EX는 올리브영 어워즈 헤어케어 부문 4년 연속 1위, 2025년 글로벌 부문 베스트 퍼포머 선정, ‘집착 헤어팩’ 애칭이 확인됩니다.",
+        model: "세븐틴 민규, 노윤서",
+        confidence: "가격·성과·실리콘: 확인. 제조/책임판매: 보강 필요.",
+        sources: ["올리브영 상품명/가격", "UNOVE 공식몰", "INCI Decoder/SentiSenti 성분"]
+      },
+      {
+        image: "assets/orot-hair-products/fromlabs.png",
+        brand: "프롬랩스",
+        name: "단백질 흡착 트리트먼트 200ml",
+        slideName: "프롬랩스 단백질 흡착 트리트먼트",
+        listPrice: 25000,
+        salePrice: 25000,
+        volume: "200ml",
+        volumeValue: 200,
+        per100: 12500,
+        type: "wash-off",
+        url: "https://m.fromlabs.kr/",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000239676" },
+          { label: "자사몰", href: "https://m.fromlabs.kr/product/detail.html?item_code=P00000FR000C&product_no=147" }
+        ],
+        perception: "‘흡착 단백질’, ‘청담샵 루틴’, ‘임상’ 같은 근거형 카피로 머릿결 개선 기대를 만듭니다. 대중형보다 가격은 높지만 기능 설명이 선명한 편입니다.",
+        positive: "5~10분 정도 흡착시키면 뻣뻣한 모발이 한 톤 부드러워지고, 엉킴이 확 줄어든다는 리뷰가 많습니다. 플리즈 비교 테스트처럼 ‘1회 사용 후 즉시 부드러움’, ‘마무리감이 깔끔하다’, ‘꾸덕하지만 떡지지 않는다’는 평가가 강합니다.",
+        negative: "제형이 되직해 펌프/튜브 사용성이 불편하고, 충분히 헹구지 않으면 무겁게 느껴질 수 있습니다. 가격이 대중형 트리트먼트보다 높아 재구매를 망설인다는 반응, 얇은 모발에는 볼륨이 죽을 수 있다는 의견도 있습니다.",
+        clinical: "프롬랩스 공식/보도자료 기준 인모 테스트에서 1회 사용 시 모발 속 단백질 결합력 321~322%, 모발 겉면 단백질 결합력 497% 증가가 확인됩니다. 광고 소재에는 피엔케이피부임상연구센타㈜, 시험대상자 23명 사용자 만족도 설문 평가가 노출되며, 열·자외선 보호 임상은 노워시 스프레이/3종 세트 맥락으로 분리 확인됩니다.",
+        manufacturer: "㈜씨엔에프",
+        seller: "㈜더파운더즈",
+        siliconeStatus: "yes",
+        silicone: "G마켓 상품고시 스니펫 기준 다이메티콘 확인. 글리세린, 세틸알코올, 베헨트라이모늄클로라이드도 함께 노출됩니다.",
+        functionRead: "다이메티콘+지방알코올+양이온 컨디셔닝 성분으로 코팅감과 엉킴 완화를 만들고, 단백질 흡착/캡슐 커뮤니케이션으로 손상부위 보강감을 강조하는 제품입니다.",
+        achievement: "공식몰에 2025 화해 뷰티 어워드 트리트먼트/팩 부문 1위 수상 문구가 노출됩니다. 희재, 플리즈가 공동구매로 소개한 인플루언서 공구템입니다.",
+        model: "현 공식 광고모델 미확인. 희재·플리즈 공구 노출은 샤라웃으로 별도 분류",
+        confidence: "브랜드 성과·가격 일부: 확인. 전성분/제조사/임상기관: 보강 필요.",
+        sources: ["프롬랩스 공식몰", "브랜드 보도자료", "희재 공구", "플리즈 공구"]
+      },
+      {
+        image: "assets/orot-hair-products/growus.jpg",
+        brand: "그로우어스",
+        name: "데미지 테라피 리페어 클리닉 헤어팩 230g 기획",
+        slideName: "그로우어스 데미지 테라피 리페어 클리닉 헤어팩",
+        listPrice: 22000,
+        salePrice: 17900,
+        volume: "230g",
+        volumeValue: 230,
+        per100: 7783,
+        type: "wash-off",
+        url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000248789",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000248789" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EA%B7%B8%EB%A1%9C%EC%9A%B0%EC%96%B4%EC%8A%A4-%EB%8D%B0%EB%AF%B8%EC%A7%80-%ED%85%8C%EB%9D%BC%ED%94%BC-%EB%A6%AC%ED%8E%98%EC%96%B4-%ED%81%B4%EB%A6%AC%EB%8B%89/2192103" },
+          { label: "무신사", href: "https://www.musinsa.com/products/6109877" },
+          { label: "자사몰", href: "https://m.growus.kr/products/133011925" },
+          { label: "쿠팡", href: "https://www.coupang.com/vp/products/9401387774" },
+          { label: "글로우픽", href: "https://www.glowpick.com/products/188523/details" }
+        ],
+        perception: "올리브영 상품명에서 ‘아이돌PICK/접착 헤어팩’으로 노출되는 신상급 손상모 헤어팩입니다. 청담샵 공동개발, 3분 클리닉, 168시간 지속, 모발 멜팅 접착 헤어팩 같은 카피로 살롱 홈케어 이미지를 강하게 만듭니다.",
+        positive: "올리브영·화해·쿠팡 리뷰 맥락에서는 꾸덕한데 손 온도에 녹아 부드럽게 펴지고, 헹굴 때 엉킴이 줄며 드라이 후 머릿결이 차분해졌다는 반응이 많습니다. 향 만족도, 3분 사용 편의성, 헤어오일/스파츌라 기획 구성, 푸석한 염색·펌 모발의 즉각 부드러움 체감이 반복됩니다.",
+        negative: "꾸덕한 제형이라 양 조절을 많이 하면 무겁거나 잔여감이 남는다는 반응이 나올 수 있고, 가는 모발은 볼륨이 꺼질 수 있습니다. 168시간 지속·접착 헤어팩 같은 카피 기대가 높아 극손상 복구를 기대하면 단기 코팅감 중심으로 느낄 수 있으며, 신규 상품이라 장기 재구매 리뷰 모수는 피노·어노브보다 작습니다.",
+        clinical: "올리브영/자사몰/글로우픽 공개 텍스트 기준 ‘168시간 지속 극손상모 리페어’, ‘모발 멜팅 접착 헤어팩’, ‘청담샵 공동개발’ 문구가 확인됩니다. 다만 공개 텍스트에서 시험기관명·기간·대상자 수는 확인되지 않아 기관 고지형 인체적용시험은 미확인으로 분류했습니다.",
+        manufacturer: "제품 내 별도표기",
+        seller: "㈜일레븐코퍼레이션",
+        siliconeStatus: "unknown",
+        silicone: "화해 상품 페이지는 확인되지만 공개 검색 텍스트만으로 전성분 전문은 확인되지 않았습니다. 제형/카피상 컨디셔닝 폴리머·양이온 컨디셔닝 성분 중심의 wash-off 헤어팩으로 보이며, 실리콘 포함 여부는 전성분 원문 확인 후 확정해야 합니다.",
+        functionRead: "손 온도에 녹는 멜팅 텍스처와 168시간 지속 카피를 앞세운 손상모 표면 밀착형 헤어팩입니다. 염색·펌으로 거칠어진 모발의 엉킴 완화, 부드러움, 윤기, 홈 살롱 클리닉 체감에 초점이 있습니다.",
+        achievement: "올리브영 브랜드스토어에서 그로우어스는 찜 12,098개와 ‘접착단백질 헤어케어’ 포지션이 확인됩니다. 올리브영 상품명 ‘아이돌PICK’, 공식/페이스북 소재 ‘윤메이PICK’, 청담샵 공동개발·접착 헤어팩 특가 노출이 확인됩니다.",
+        model: "현 공식 광고모델 미확인. ‘아이돌PICK’ 및 윤메이PICK/셀링라이프 콘텐츠성 노출은 확인",
+        confidence: "올리브영 가격·용량·채널 확인. 자사몰 책임판매업자 확인. 제조업자·전성분·기관 고지형 임상은 공개 텍스트상 미확인.",
+        sources: ["올리브영", "그로우어스 공식몰", "화해", "무신사", "쿠팡", "글로우픽", "올리브영 브랜드스토어"]
+      },
+      {
+        image: "assets/orot-hair-products/moremo.jpg",
+        brand: "모레모",
+        name: "리커버리 밤 B 120ml",
+        slideName: "모레모 리커버리밤 비",
+        listPrice: 21000,
+        salePrice: 14300,
+        volume: "120ml",
+        volumeValue: 120,
+        per100: 11917,
+        type: "leave-in",
+        url: "https://www.kurly.com/goods/5099182",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000212807" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EB%AA%A8%EB%A0%88%EB%AA%A8-%EB%A3%A8%EB%B9%84-%EC%97%90%EB%94%94%EC%85%98-%EB%A6%AC%EC%BB%A4%EB%B2%84%EB%A6%AC-%EB%B0%A4-B/1877696" },
+          { label: "컬리", href: "https://www.kurly.com/goods/5099182" }
+        ],
+        perception: "에센스처럼 바르는 노워시 트리트먼트로 인식됩니다. 열기구 전후, 부스스함 정리, 향 중심의 데일리 케어 후보입니다.",
+        positive: "드라이 전 젖은 모발에 바르면 빗질이 잘 되고, 떡지지 않으면서 차분해진다는 리뷰가 많습니다. 헹구지 않아 편하고, 고데기 전에도 쓸 수 있으며 오일보다 손에 남는 잔여감이 적다는 점이 장점으로 언급됩니다.",
+        negative: "향은 취향이 갈리고, 많이 바르거나 한 곳에 몰리면 로션형 에센스 특유의 떡짐이 생길 수 있습니다. 장기적인 복구감보다는 즉각적인 정돈감 중심이라 극손상모가 ‘클리닉 효과’를 기대하면 아쉽다는 반응이 있습니다.",
+        clinical: "모레모 리커버리 밤 B 루비 에디션 출시 보도 기준 임상시험에서 24시간 모발 컬링 유지, 모발 볼륨 개선 및 24시간 지속, 열기구 사용 시 모발 탄력과 갈라짐/거칠기 개선을 확인했습니다. 인체적용시험에서는 모발 단백질 흡착 및 2주 지속 결과가 확인됐고, 최근 챠미키티 에디션 광고 소재에는 피엔케이피부임상연구센타㈜/2025.04 시험 문구가 노출됩니다.",
+        manufacturer: "㈜세화피앤씨",
+        seller: "㈜세화피앤씨",
+        siliconeStatus: "yes",
+        silicone: "다이메티콘, 사이클로펜타실록세인 확인.",
+        functionRead: "글리세린·실리콘·단백질/아미노산 계열 조합으로 노워시 코팅, 열 스타일링 전 윤활, 부스스함 억제에 맞춘 제품입니다.",
+        achievement: "글로우픽 컨슈머 뷰티어워드 헤어·트리트먼트 부문 1위 수상, 론칭 1년 만에 10만개 판매 보도가 확인됩니다. ‘인생 헤어제품’ 리뷰가 보도에 인용될 정도로 실사용 샤라웃이 강합니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "가격·용량·실리콘: 확인. 제조/책임판매: 보강 필요.",
+        sources: ["마켓컬리", "지그재그", "G마켓/쇼핑엔티 전성분 스니펫"]
+      },
+      {
+        image: "assets/orot-hair-products/silk-therapy.jpg",
+        brand: "실크테라피",
+        name: "오리지널 헤어 에센스 145ml",
+        slideName: "실크테라피 에센스",
+        listPrice: 37000,
+        salePrice: 25900,
+        volume: "145ml",
+        volumeValue: 145,
+        per100: 17862,
+        type: "leave-in",
+        url: "https://www.coupang.com/np/search?q=%EC%8B%A4%ED%81%AC%ED%85%8C%EB%9D%BC%ED%94%BC%ED%97%A4%EC%96%B4%EC%97%90%EC%84%BC%EC%8A%A4",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000177588" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EC%8B%A4%ED%81%AC%ED%85%8C%EB%9D%BC%ED%94%BC-%EC%98%A4%EB%A6%AC%EC%A7%80%EB%84%90%EC%97%90%EC%84%BC%EC%8A%A4/1899153" },
+          { label: "무신사", href: "https://www.musinsa.com/products/6199312" },
+          { label: "컬리", href: "https://www.kurly.com/goods/1001030186" }
+        ],
+        perception: "오래된 ‘실크 단백질 에센스’ 카테고리 대표 제품으로, 끈적임 없이 윤기와 정돈감을 주는 클래식 헤어 에센스로 인식됩니다.",
+        positive: "소량만 발라도 윤기와 차르르한 광택이 살아나고, 부스스한 웨이브·파마 모발이 정돈된다는 반응이 많습니다. 드라이/고데기 전후로 쓰기 좋고, 향과 부드러운 마무리감 때문에 오래 재구매한다는 리뷰가 많습니다.",
+        negative: "실리콘 오일감이 있어 가는 모발에는 무겁거나 떡져 보일 수 있고, 얼굴·목에 닿으면 트러블이 난다는 후기가 있습니다. 손에 남는 미끈함, 용기 펌핑/흐름, 가격 부담을 단점으로 보는 반응도 있습니다.",
+        clinical: "올리브영 상세 이미지 기준 P&K피부임상연구센터 시험이 확인됩니다. 2020.03.30~2020.04.07, 만 20~55세 21명 대상 인체적용시험으로 180도 열기구로 인한 모발 손상 보호 효과, 펌/염색 손상모발 큐티클 개선 효과를 제시합니다. 추가로 1회 사용 직후 27% 모발 볼륨 증가, 24시간 모발 샤인 지속력 문구도 확인됩니다.",
+        manufacturer: "Farouk Systems, Inc.",
+        seller: "㈜엘지생활건강",
+        siliconeStatus: "yes",
+        silicone: "Cyclopentasiloxane, Dimethiconol 등 실리콘 베이스 성분 확인. 열기구 전 마찰 감소, 윤기, 코팅감에 직접 기여합니다.",
+        functionRead: "휘발성 실리콘·실크 단백질 계열로 마찰 감소, 광택, 열 스타일링 전 표면 보호에 초점이 있습니다.",
+        achievement: "실크테라피는 국내에서 장기간 ‘실크 단백질 헤어 에센스’ 대표 제품으로 소비된 스테디셀러입니다. 올리브영 상세에서 열보호·큐티클 개선 임상 이미지를 전면에 쓰며, 뷰티 블로그/홈쇼핑 기반 재구매 언급이 많습니다.",
+        model: "현 공식 모델 미확인. 과거 홈쇼핑/시니어 헤어모델 방송 중심 노출.",
+        confidence: "초기 가격 기준. 공식 상세 고시 보강 필요.",
+        sources: ["초기 후보 목록", "쿠팡 검색 결과"]
+      },
+      {
+        image: "assets/orot-hair-products/fino.jpg",
+        brand: "피노",
+        name: "프리미엄 터치 헤어 마스크 230g",
+        slideName: "피노 헤어팩",
+        listPrice: 14000,
+        salePrice: 11200,
+        volume: "230g",
+        volumeValue: 230,
+        per100: 4870,
+        type: "wash-off",
+        url: "https://www.oliveyoung.co.kr/store/search/getSearchMain.do?query=%ED%94%BC%EB%85%B8%20%ED%97%A4%EC%96%B4%ED%8C%A9",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000250320" },
+          { label: "컬리", href: "https://www.kurly.com/goods/1001394973" }
+        ],
+        perception: "‘물미역 머릿결’, ‘젤리 헤어팩’으로 알려진 일본계 대중 헤어팩입니다. 가격 진입장벽이 낮아 츠바키와 자주 비교됩니다.",
+        positive: "방치 시간을 충분히 두면 ‘물미역’, ‘스파 다녀온 듯한 윤기’, ‘드라이하지 않아도 차분함’이 느껴진다는 리뷰가 많습니다. 한 스푼 정도로도 넉넉하고, 굵은 모발·염색모에서 부드러움과 향 만족도가 높게 언급됩니다.",
+        negative: "짧게 쓰면 평범한 린스 같다는 반응이 있고, 얇은 모발은 무겁거나 떡질 수 있습니다. 단지형 용기라 위생/사용성이 불편하고, 기대가 큰 만큼 극손상 복구보다는 코팅감으로 느낀다는 의견도 있습니다.",
+        clinical: "피노 국내 상세/광고 소재는 큐티클 케어, 염색모 컬러 유지 도움 등 헤어 고민 케어를 전면에 둡니다. 다만 현재 확인 가능한 공개 텍스트에서는 국내 인체적용시험 기관명·기간·대상자 수가 노출되지 않아, 임상 고시형 근거보다는 제품 효능/사용감 주장으로 분류했습니다.",
+        manufacturer: "파인투데이",
+        seller: "파인투데이코리아㈜",
+        siliconeStatus: "yes",
+        silicone: "Dimethicone 계열 컨디셔닝 성분 포함 제품으로 분류. 윤기와 즉각적인 매끄러움에 기여합니다.",
+        functionRead: "실리콘 컨디셔닝막과 로열젤리/스쿠알란 등 보습·윤기 성분 조합으로 표면 윤활과 광택에 강한 제품입니다.",
+        achievement: "피노는 2026년 아일릿 원희를 앰버서더로 발탁하고 ‘Glow in motion’ 캠페인을 전개했습니다. 인스타그램 광고에서 ‘2초에 1개 판매’ 문구가 확인됩니다.",
+        model: "아일릿 원희",
+        confidence: "가격은 초기 기준. 모델/캠페인: 확인. 제조/전성분: 보강 필요.",
+        sources: ["피노 캠페인 보도", "인스타그램 광고", "초기 후보 목록"]
+      },
+      {
+        image: "assets/orot-hair-products/parkjun.jpg",
+        brand: "박준뷰티랩",
+        name: "LPP 단백질 트리트먼트 플러스 1000ml",
+        slideName: "박준뷰티랩 LPP 단백질 트리트먼트 플러스",
+        listPrice: 36000,
+        salePrice: 29900,
+        volume: "1000ml",
+        volumeValue: 1000,
+        per100: 2990,
+        type: "wash-off",
+        url: "https://ma.oliveyoung.co.kr/m/G.do?goodsNo=A000000166083",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000121286" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EB%B0%95%EC%A4%80%EB%B7%B0%ED%8B%B0%EB%9E%A9-LPP-%EB%8B%A8%EB%B0%B1%EC%A7%88-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8-%ED%97%A4%EC%96%B4-%ED%8C%A9/1999074" },
+          { label: "롯데마트", href: "https://lottemartzetta.com/products/OS8809239496057/details" }
+        ],
+        perception: "대용량·가성비·살롱 단백질 트리트먼트 이미지가 강합니다. 극손상모가 ‘많이 쓰는 제품’으로 부담 없이 접근하기 좋습니다.",
+        positive: "1L 대용량이라 가족이 쓰거나 헤어팩처럼 듬뿍 바르기 좋고, 엉킴이 줄고 모발이 영양감 있게 채워진다는 리뷰가 많습니다. 잔향이 부담스럽지 않고 데일리 트리트먼트로 가성비가 좋다는 평가가 강합니다.",
+        negative: "잠깐 바르고 헹구는 데일리 사용에서는 효과가 약하고, 제대로 방치해야 체감된다는 의견이 있습니다. 제형이 되직해 바르기 불편하거나 부드러움·윤기보다는 영양감 위주라 기대와 다르다는 반응, 배송/포장 불만도 일부 있습니다.",
+        clinical: "상품 설명에서 ‘48시간 지속되는 모발 단백질 코팅’ 문구와 LPP 프로틴 콤플렉스 기반 코팅 지속 주장이 확인됩니다. 현재 확인한 올리브영/유통 상세 텍스트에서는 시험기관명·기간·대상자 수가 노출되지 않아, 수치형 효능 주장은 있으나 기관 고지 임상으로는 분리 표기했습니다.",
+        manufacturer: "㈜본코스메틱",
+        seller: "㈜디자이너스랩",
+        siliconeStatus: "yes",
+        silicone: "사이클로펜타실록세인, 아모다이메티콘 확인.",
+        functionRead: "지방알코올·양이온 계면활성제·실리콘·하이드롤라이즈드콜라겐·판테놀 조합으로 대용량 코팅/윤활/단백질 보강에 맞춘 제품입니다.",
+        achievement: "올리브영 ‘손상모케어’ 대용량 LPP 트리트먼트로 오래 팔린 가성비 살롱템입니다. 헤메코랩·쿠팡 등에서 후기 모수가 큰 편이라 대중 반복구매형 제품으로 보는 게 맞습니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "가격은 올리브영 기준, 제조/전성분은 롯데마트 상품고시 확인.",
+        sources: ["올리브영", "롯데마트 제타", "컬리", "쿠팡"]
+      },
+      {
+        image: "assets/orot-hair-products/biorecipe.jpg",
+        brand: "바이오레시피",
+        name: "1초 데미지케어 마블 헤어팩 300g",
+        slideName: "바이오레시피 단백질 마블헤어팩",
+        listPrice: 54000,
+        salePrice: 32500,
+        volume: "300g",
+        volumeValue: 300,
+        per100: 10833,
+        type: "wash-off",
+        url: "https://www.musinsa.com/products/5998625",
+        links: [
+          { label: "무신사", href: "https://www.musinsa.com/products/5998625" }
+        ],
+        perception: "SNS 핫템, 단백질폭탄, 1초 극손상 복구 같은 강한 카피로 인지됩니다. 향과 비주얼 패키지로 유입되지만 사용감 호불호가 큰 편입니다.",
+        positive: "꾸덕한 크림 제형과 마블 비주얼, 향, 사용 후 부드러움 때문에 ‘홈클리닉 느낌’으로 만족했다는 리뷰가 있습니다. 건조하고 푸석한 모발에 보습·단백질감이 느껴지고, 쿠팡 리뷰 요약에서도 머릿결이 부드러워진다는 응답 비중이 높게 보입니다.",
+        negative: "향과 잔향 호불호가 크고, 제형이 무거워 떡짐이나 두피·등 트러블을 언급하는 리뷰가 있습니다. 일부는 착색/색 묻어남을 걱정하거나, 기대한 ‘1초 복구’만큼의 극적인 차이는 없고 오히려 뻣뻣하게 느꼈다고 평가합니다.",
+        clinical: "무신사/유통 상세 기준 ‘1초 데미지 케어’, ‘6대 극손상모 개선’, LPP 단백질 중심 카피가 확인됩니다. 다만 현재 공개 텍스트에서 시험기관명·기간·대상자 수가 확인되지 않아, 상세 이미지 재확인 전까지는 인체적용시험 기관 미노출로 분류했습니다.",
+        manufacturer: "상품고시 이미지 확인 필요",
+        seller: "바이오레시피 판매원 상세 고시 확인 필요",
+        siliconeStatus: "yes",
+        silicone: "마블 헤어팩류 특성상 실리콘/폴리머 코팅감을 전면에 둔 제품으로 분류. 공개 텍스트에서는 전성분 이미지 원문이 필요하지만, 쿠팡·유통 리뷰의 ‘크림처럼 되직한 질감/부드러움’과 단백질 헤어팩 포지션을 함께 반영했습니다.",
+        functionRead: "되직한 크림 베이스와 LPP/단백질 카피로 손상모 표면을 빠르게 정돈하고, 보습·코팅·엉킴 완화 체감을 주는 제품입니다.",
+        achievement: "에이블리에서 ‘품절대란/전체랭킹 1위’ 문구가 확인됩니다. 무신사·쿠팡·롯데아이몰 등으로 확산된 SNS형 헤어팩입니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "가격은 초기 기준. 성과 일부 확인. 전성분/제조사 보강 필요.",
+        sources: ["무신사", "에이블리", "롯데아이몰"]
+      },
+      {
+        image: "assets/orot-hair-products/lush-super-milk.jpg",
+        brand: "러쉬",
+        name: "수퍼 밀크 컨디셔닝 헤어 프라이머 100g",
+        slideName: "러쉬 수퍼 밀크",
+        listPrice: 38000,
+        salePrice: 38000,
+        volume: "100g",
+        volumeValue: 100,
+        per100: 38000,
+        type: "leave-in",
+        url: "https://www.lush.co.kr/seo/item/1000001504",
+        links: [
+          { label: "자사몰", href: "https://www.lush.co.kr/seo/item/1000001504" },
+          { label: "컬리", href: "https://www.kurly.com/goods/1000086270" },
+          { label: "무신사", href: "https://www.musinsa.com/products/3341580" }
+        ],
+        reviewChannel: "무신사",
+        perception: "컨디셔닝 헤어 프라이머 미스트로, 극손상 복구템보다는 향이 오래 남는 leave-in 정돈템으로 강하게 인식됩니다. 컬리와 무신사에서는 헤어 에센스/프라이머로 판매되고, 러쉬 공식몰도 ‘달콤한 향기로 촉촉하게’라는 포지션을 둡니다.",
+        positive: "젖은 모발이나 마른 모발에 뿌리면 곱슬·푸석함이 차분해지고, 긴 머리 엉킴이 풀린다는 반응이 많습니다. 레몬·바닐라·코코넛처럼 달달한 향이 오래 남아 향수 대용으로 쓴다는 리뷰가 특히 강합니다.",
+        negative: "향 존재감이 커서 달달한 잔향을 부담스럽게 느끼는 사람도 있고, 많이 뿌리면 유분감이나 잔여감이 생길 수 있습니다. 본딩/단백질 복구 제품이 아니라 향과 정돈감 중심이라 손상 복구를 기대하면 약하게 느낄 수 있습니다.",
+        clinical: "러쉬 미국 공식 페이지 기준 아몬드밀크·오트밀크·레몬주스 효능 설명과 Allure Best of Beauty Award 2025, Pure Beauty Global Awards 2021 Best New Hair Styling Product 수상 문구가 확인됩니다. 국내/글로벌 공식 상세에서 별도 인체적용시험 기관명·기간·대상자 수는 확인되지 않았습니다.",
+        manufacturer: "Lush Limited, 영국 도싯 풀",
+        seller: "㈜러쉬코리아",
+        siliconeStatus: "yes",
+        silicone: "러쉬 미국 공식 전성분 기준 실리콘 명칭 성분은 확인되지 않지만, C13-15 Alkane이 있어 실리콘 유사 감촉의 경량 에몰리언트로 분류했습니다.",
+        functionRead: "아몬드밀크·코코넛밀크·오트밀크, 레몬주스, 올리브오일, 쿼터늄 계열 컨디셔닝 성분을 둔 분사형 leave-in 프라이머입니다. 보습, 윤기, 엉킴 완화, 다음날 웨이브/컬 리프레시 기능이 중심입니다.",
+        achievement: "러쉬 공식 글로벌 페이지에서 Allure Best of Beauty 2025, Pure Beauty Global Awards 2021 Best New Hair Styling Product 수상 문구가 확인됩니다. 국내에서는 ‘향수 대용 헤어 미스트’로 SNS 언급이 많고, 달달한 레몬·바닐라 잔향으로 회자됩니다.",
+        model: "시드니 스위니",
+        confidence: "제품명·가격·용량·채널·제조/책임판매·대표 이미지를 2026.07.08 기준 공식/유통 페이지로 재확인했습니다.",
+        sources: ["러쉬 공식몰", "러쉬 미국 공식", "컬리", "무신사", "신세계V 상품고시"]
+      },
+      {
+        image: "assets/orot-hair-products/kerastase.jpg",
+        brand: "케라스타즈",
+        name: "레지스턴스 마스크 테라피스테 200ml",
+        slideName: "케라스타즈",
+        listPrice: 79000,
+        salePrice: 71100,
+        volume: "200ml",
+        volumeValue: 200,
+        per100: 35550,
+        type: "wash-off",
+        url: "https://www.kurly.com/goods/1000098402",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000212131" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EC%BC%80%EB%9D%BC%EC%8A%A4%ED%83%80%EC%A6%88-%EB%A7%88%EC%8A%A4%ED%81%AC-%ED%85%8C%EB%9D%BC%ED%94%BC%EC%8A%A4%ED%85%8C/2046765" },
+          { label: "무신사", href: "https://www.musinsa.com/products/6233239" },
+          { label: "컬리", href: "https://www.kurly.com/goods/1000098402" }
+        ],
+        perception: "국내 극손상모 문맥에서는 ‘마스크 테라피스테’가 케라스타즈 대표 SKU로 자주 비교됩니다. 프리미엄 살롱 케어, 초극손상 집중 트리트먼트로 인식됩니다.",
+        positive: "손상모가 부드럽고 차분해지며 영양이 채워져 탄탄해진다는 평가가 많습니다. 되직한 마스크 제형, 5분 케어, 살롱 제품다운 윤기와 마무리감 때문에 극손상모용 프리미엄 홈케어로 인식됩니다.",
+        negative: "가격이 높아 효과 대비 부담스럽다는 의견이 가장 큽니다. 모발 타입에 따라 무겁거나 축 처질 수 있고, 일부는 아모스 CMC 등 더 저렴한 살롱 제품이 체감 효과가 좋았다고 비교합니다.",
+        clinical: "케라스타즈 공식 페이지는 Fibra-KAP™+Resurrection SAP 기반으로 극손상 모발 속 건강 관리, 탄력 부여, 모발 정돈, 부드럽고 탄력 있는 머릿결, 끊어진 모발 케어를 제시합니다. 올리브영/컬리 상세에서도 초극손상 집중 영양 케어는 확인되지만, 국내 인체적용시험 기관명·기간·대상자 수는 공개 텍스트에 미노출입니다.",
+        manufacturer: "L'Oréal S.A. 계열",
+        seller: "엘오케이(유)",
+        siliconeStatus: "yes",
+        silicone: "케라스타즈 레지스턴스 마스크류 전성분에서 Amodimethicone 등 컨디셔닝 실리콘 계열이 확인되는 제품군입니다.",
+        functionRead: "아미노산/밀단백/부활초 성분 커뮤니케이션과 고영양 크림 베이스로 모발 내부 보강과 표면 윤기를 동시에 말합니다.",
+        achievement: "케라스타즈는 살롱 프리미엄 헤어케어 대표 브랜드이며, 시드니 스위니를 글로벌 앰버서더로 기용했습니다. 마스크 테라피스테는 극손상·초극손상 라인의 대표 SKU로 계속 회자됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "제품 SKU는 리서치로 특정. 전성분/제조 고시 보강 필요.",
+        sources: ["케라스타즈 공식", "컬리"]
+      },
+      {
+        image: "assets/orot-hair-products/aveda.jpg",
+        brand: "아베다",
+        name: "보태니컬 리페어 리브-인 에센스 100ml",
+        slideName: "아베다",
+        listPrice: 57000,
+        salePrice: 57000,
+        volume: "100ml",
+        volumeValue: 100,
+        per100: 57000,
+        type: "leave-in",
+        url: "https://www.avedakorea.com/product/5303/80716/hair-care/leave-in-treatment/botanical-repair-strenghening-leave-in-treatment",
+        links: [
+          { label: "자사몰", href: "https://www.avedakorea.com/product/5303/80716/hair-care/leave-in-treatment/botanical-repair-strenghening-leave-in-treatment" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EC%95%84%EB%B2%A0%EB%8B%A4-%EB%B3%B4%ED%83%9C%EB%8B%88%EC%BB%AC-%EB%A6%AC%ED%8E%98%EC%96%B4-%EC%9D%B8%ED%85%90%EC%8B%9C%EB%B8%8C-%EC%8A%A4%ED%8A%B8%EB%A0%9D%EC%93%B0%EB%8B%9D-%EB%A6%AC%EB%B8%8C-%EC%9D%B8-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8/1902637" }
+        ],
+        perception: "극손상·본드 결합·열 보호 맥락에서는 보태니컬 리페어 리브-인이 아베다 대표 SKU로 자주 비교됩니다. 비건·식물성 고급 헤어케어로 인식됩니다.",
+        positive: "끈적이지 않고 산뜻하게 발리며, 젖은 모발에 바르면 엉킴이 풀리고 컬이 살아난다는 리뷰가 있습니다. 드라이 전 열 보호, 리브인 편의성, 아베다 특유의 식물성 향과 고급스러운 사용감이 강점으로 꼽힙니다.",
+        negative: "가격이 높고, 향이 허브/식물성 계열이라 취향이 갈릴 수 있습니다. 극손상모가 즉각적인 실리콘 코팅감을 기대하면 다소 가볍게 느껴질 수 있고, 양 조절을 못 하면 모발 끝만 따로 뭉치는 느낌이 날 수 있습니다.",
+        clinical: "아베다 공식 페이지 기준 3-레이어 헤어 리페어, 본드 결합 강화, 최대 약 230도 열 손상 보호 문구가 확인됩니다. 공식 상세에서는 자체/실험실 테스트성 효능 주장으로 노출되며, 국내 인체적용시험 기관명·기간·대상자 수는 확인되지 않았습니다.",
+        manufacturer: "Aveda Corporation / Estée Lauder 계열",
+        seller: "이엘씨에이한국(유)",
+        siliconeStatus: "no",
+        silicone: "브랜드/제품 포지션상 실리콘 프리로 알려진 라인이나 최신 국내 전성분 확인 전 ‘추정’입니다.",
+        functionRead: "식물성 오일/고분자/단백질 유사 컨디셔닝으로 본드 강화, 열 보호, leave-in 윤활에 초점이 있습니다.",
+        achievement: "아베다 공식몰에서 ‘손상모케어 No.1 헤어 에센스’ 문구를 전면에 노출합니다. 비건·비콥 인증 브랜드 배경과 살롱 전문가 채널 기반 신뢰가 강한 편입니다.",
+        model: "클로이 파인먼(No.3 Plus 글로벌 캠페인). 국내 No.3 모델은 미확인",
+        confidence: "대표 SKU 선정. 가격·기능 문구 확인. 전성분/책임판매 보강 필요.",
+        sources: ["아베다 공식몰"]
+      },
+      {
+        image: "assets/orot-hair-products/olaplex.png",
+        brand: "올라플렉스",
+        name: "No.3 헤어 퍼펙터 100ml",
+        slideName: "올라플렉스",
+        listPrice: 53000,
+        salePrice: 53000,
+        volume: "100ml",
+        volumeValue: 100,
+        per100: 53000,
+        type: "wash-off",
+        url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000185282",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000185282" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EC%98%AC%EB%9D%BC%ED%94%8C%EB%A0%89%EC%8A%A4-NO-3-%ED%97%A4%EC%96%B4-%ED%8D%BC%ED%8E%99%ED%84%B0/2023835" },
+          { label: "무신사", href: "https://www.musinsa.com/products/5046770" },
+          { label: "자사몰", href: "https://uk.olaplex.com/products/olaplex-n-3-hair-perfector-uk" }
+        ],
+        perception: "‘리얼 본딩’ 비교 맥락에서는 No.3가 올라플렉스 대표 SKU입니다. 탈색·염색 손상모가 ‘본드 빌딩’ 목적으로 찾는 프리미엄 제품입니다.",
+        positive: "탈색·염색 후 끊어짐이 줄고 모발이 덜 부스스해졌다는 본딩 케어 기대 리뷰가 많습니다. 실리콘 코팅감보다 내부 결합 케어 제품이라는 점을 이해하고 꾸준히 쓰는 고객은 모발 탄력과 윤기 회복을 장점으로 봅니다.",
+        negative: "100ml 용량 대비 가격이 높고, 사용법이 프리샴푸/방치형이라 번거롭다는 의견이 있습니다. 즉각적인 미끄러움이나 향 좋은 트리트먼트 효과를 기대하면 실망할 수 있고, 일부는 변화가 미미하다고 평가합니다.",
+        clinical: "올라플렉스 No.3는 Bis-Aminopropyl Diglycol Dimaleate 기반 본드 빌딩 기술을 핵심 근거로 제시합니다. 올라플렉스 코리아 광고 소재에서 ‘임상 테스트 완료’, 즉각적인 볼륨 2배 증가, 모발 끊어짐 60% 감소 문구가 확인되지만, 현재 No.3 국내 상세 공개 텍스트에서는 시험기관명·기간·대상자 수가 확인되지 않았습니다.",
+        manufacturer: "Olaplex iPLC",
+        seller: "㈜시오인터내셔널",
+        siliconeStatus: "no",
+        silicone: "No.3 Hair Perfector는 실리콘 프리 본딩 트리트먼트로 분류. Bis-Aminopropyl Diglycol Dimaleate가 핵심 성분입니다.",
+        functionRead: "손상된 이황화 결합 보강을 전면에 둔 프리샴푸/트리트먼트형 본딩 제품입니다. 표면 코팅보다 내부 결합 회복 커뮤니케이션이 강합니다.",
+        achievement: "글로벌 본딩 헤어케어 대표 브랜드입니다. 국내에서는 춈미의 올라플렉스 사용템 언급 뒤 올리브영 품절 맥락이 회자됐고, 이사배의 실제 관리템/이사배 PICK 콘텐츠에서 No.4·No.5 및 No.0·No.3 세트가 노출됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "대표 SKU 선정. 가격 확인. 전성분/수입 고시 보강 필요.",
+        sources: ["올리브영", "SSG 공식수입정품"]
+      },
+      {
+        image: "assets/orot-hair-products/miseenscene.jpg",
+        brand: "미쟝센",
+        name: "살롱10 이너플렉스 모발강화제 145g",
+        slideName: "미쟝센 살롱10 이너플렉스 모발강화제",
+        listPrice: 25000,
+        salePrice: 19900,
+        volume: "145g",
+        volumeValue: 145,
+        per100: 13724,
+        type: "wash-off",
+        url: "https://www.miseenscene.com/product/%EC%9D%B4%EB%84%88%ED%94%8C%EB%A0%89%EC%8A%A4-%EB%AA%A8%EB%B0%9C%EA%B0%95%ED%99%94%EC%A0%9C-145g/96/",
+        links: [
+          { label: "자사몰", href: "https://www.miseenscene.com/product/%EC%9D%B4%EB%84%88%ED%94%8C%EB%A0%89%EC%8A%A4-%EB%AA%A8%EB%B0%9C%EA%B0%95%ED%99%94%EC%A0%9C-145g/96/" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EB%AF%B8%EC%9F%9D%EC%84%BC-%EC%9D%B4%EB%84%88%ED%94%8C%EB%A0%89%EC%8A%A4-%EB%AA%A8%EB%B0%9C%EA%B0%95%ED%99%94%EC%A0%9C/2041916" },
+          { label: "무신사 리뷰", href: "https://www.musinsa.com/review/67623723" },
+          { label: "쿠팡", href: "https://www.coupang.com/vp/products/7485688394" },
+          { label: "SSG", href: "https://emart.ssg.com/search.ssg?query=%EB%AF%B8%EC%9E%A5%EC%84%BC%EC%9D%B4%EB%84%88%ED%94%8C%EB%A0%89%EC%8A%A4" }
+        ],
+        reviewChannel: "쿠팡",
+        perception: "‘올라플렉스 저렴이’로 언급되는 국내 본딩/모발강화제입니다. 다만 2026.07.08 확인 기준 미쟝센 공식 상품 페이지는 SOLD OUT 상태이고, 아모레몰·올리브영 브랜드스토어에서는 대표 판매 SKU로 보이지 않아 현재성은 낮게 봐야 합니다. SSG/화해/쿠팡 등 일부 유통·리뷰 채널에는 판매/상품 정보가 남아 있습니다.",
+        positive: "미쟝센 공식 상세 리뷰와 파우더룸 리뷰에서 샴푸할 때 엉킴이 줄고, 모발이 단단하고 탱탱해졌다는 반응이 반복됩니다. 얇은 모발에 힘이 생기고, 포기했던 머릿결 컨디션이 좋아졌으며 파마가 더 탱글해 보인다는 사용감도 확인됩니다.",
+        negative: "화해 리뷰 스니펫에서는 ‘물로 씻을 때만 매끄럽고 말리면 건조했다’는 반응과 ‘잘 안 발린다’는 키워드가 확인됩니다. 샴푸 전 젖은 모발에 바르고 5분 기다리는 루틴이 낯설고, 공식몰 품절/주요 채널 미노출 때문에 현재 구매 지속성이 약해 보입니다.",
+        clinical: "미쟝센 공식/보도자료 기준 아모스프로페셔널과 공동개발한 INNERPLEX™ 적용, 끊어진 손상모 내부 결합 형성 및 본딩 케어가 확인됩니다. 공식 상세는 기술/성분 근거 중심이며, 현재 공개 텍스트에서 별도 인체적용시험 기관명·기간·대상자 수는 확인되지 않았습니다.",
+        manufacturer: "㈜아모레퍼시픽",
+        seller: "㈜아모레퍼시픽",
+        siliconeStatus: "no",
+        silicone: "공식/보도자료에서 본딩·비건 라인으로 소개되며, 공개 텍스트 기준 실리콘 중심 코팅 제품으로 보이지 않습니다.",
+        functionRead: "INNERPLEX™ 기반 본딩/내부결합 강화가 핵심입니다. 표면 코팅보다 샴푸 전 모발 강화 단계로 손상모의 탄탄함과 펌 형성력 개선을 말하는 제품입니다.",
+        achievement: "2023년 미쟝센 손상모 근본케어 라인으로 출시됐고, 아모레퍼시픽 크리에이티브 사례에도 패키지/라인 작업이 남아 있습니다. 현재는 공식몰 SOLD OUT 및 아모레몰·올리브영 주요 노출 부재로, 성과보다는 과거 출시/니치 본딩템으로 분류하는 편이 맞습니다.",
+        model: "이너플렉스 SKU 모델 미확인. 미쟝센 브랜드/퍼펙트세럼 캠페인은 aespa 닝닝 별도 확인",
+        confidence: "공식 제품 페이지·전성분·임상 문구는 확인. 2026.07.08 기준 공식몰 SOLD OUT, 아모레몰/올리브영 주요 판매 노출 미확인, SSG 일부 판매 확인.",
+        sources: ["미쟝센 공식 상세 리뷰", "파우더룸", "화해", "무신사 리뷰", "SSG", "아모레퍼시픽 크리에이티브", "헬스경향"]
+      },
+      {
+        image: "assets/orot-hair-products/klorane.jpg",
+        brand: "클로란",
+        name: "쿠푸아수 버터 리페어 샴푸 400ml",
+        slideName: "클로란 쿠푸아수 버터 리페어 샴푸",
+        listPrice: 26000,
+        salePrice: 19500,
+        volume: "400ml",
+        volumeValue: 400,
+        per100: 4875,
+        type: "wash-off",
+        url: "https://www.kurly.com/goods/1001304132",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000157789" },
+          { label: "컬리", href: "https://www.kurly.com/goods/1001304132" }
+        ],
+        perception: "트리트먼트가 아니라 샴푸지만, 극손상모 고객이 ‘영양감이 진한 샴푸’로 같이 검토하는 제품입니다. 쿠푸아수 버터의 리페어·디탱글 이미지가 강합니다.",
+        positive: "머리 감은 뒤에도 푸석푸석하지 않고, 향이 좋고 건조한 모발이 차분해진다는 리뷰가 많습니다. 두피는 건강하지만 모발이 들뜨고 거친 사람에게 잘 맞는다는 평가가 보입니다.",
+        negative: "샴푸라서 트리트먼트처럼 극적인 복구감은 약하고, 두피가 쉽게 기름지는 타입은 무겁거나 개운함이 부족하게 느낄 수 있습니다. 향·보습막이 장점인 만큼 산뜻한 세정감을 원하는 고객에게는 호불호가 있습니다.",
+        clinical: "클로란 공식/유통 상세는 쿠푸아수 버터의 영양력을 시어버터 대비 1.5배로 설명하며, 근거로 FLECK 외 2012 in-vitro water absorption study를 표시합니다. 이는 원료 특성 시험 근거이며, 완제품 대상 국내 인체적용시험 기관명·기간·대상자 수는 확인되지 않았습니다.",
+        manufacturer: "Pierre Fabre Dermo-Cosmétique",
+        seller: "피에르파브르 더모코스메틱 코리아",
+        siliconeStatus: "no",
+        silicone: "클로란 공식 포지션 기준 실리콘 무첨가 샴푸입니다.",
+        functionRead: "쿠푸아수 버터 기반의 영양·윤활·디탱글 샴푸로, 세정 단계에서 건조 손상모의 마찰을 낮추는 포지션입니다.",
+        achievement: "올리브영에서 극손상모발·스타일링 샴푸로 노출되며, 클로란 공식 페이지는 쿠푸아수 버터 리페어 라인을 극손상 모발용으로 운영합니다. 별도 인플루언서 샤라웃은 현재 확인하지 못했습니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "가격·기능·원료 근거 확인. 전성분/제조 고시 보강 필요.",
+        sources: ["클로란 공식", "올리브영", "컬리"]
+      },
+      {
+        image: "assets/orot-hair-products/bproject.jpg",
+        brand: "비프로젝트",
+        name: "스테이 헤어 워터 트리트먼트 400ml",
+        slideName: "비프로젝트 스테이 헤어 워터 트리트먼트",
+        listPrice: 40000,
+        salePrice: 34000,
+        volume: "400ml",
+        volumeValue: 400,
+        per100: 8500,
+        type: "leave-in",
+        url: "https://bproject.co.kr/product/%EC%8A%A4%ED%85%8C%EC%9D%B4-%ED%97%A4%EC%96%B4-%EC%9B%8C%ED%84%B0-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8/18/",
+        links: [
+          { label: "자사몰", href: "https://bproject.co.kr/product/%EC%8A%A4%ED%85%8C%EC%9D%B4-%ED%97%A4%EC%96%B4-%EC%9B%8C%ED%84%B0-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8/18/" },
+          { label: "화해", href: "https://www.hwahae.co.kr/products/%EB%B9%84%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%8A%A4%ED%85%8C%EC%9D%B4-%ED%97%A4%EC%96%B4-%EC%9B%8C%ED%84%B0-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8/1996601" }
+        ],
+        perception: "물처럼 빠르게 쓰는 워터 트리트먼트로, 리얼 본딩·비건·클린 이미지를 함께 가져갑니다. 대용량 leave-in/water treatment 후보입니다.",
+        positive: "흐르지 않고 모발에 착 붙는 워터 제형이라 마사지 후 방치하면 영양감이 느껴지고, 헹굼이 편하다는 리뷰가 있습니다. 머릿결이 부드럽고 차분해졌다는 반응, 두피와 모발이 건강해지는 느낌이라는 평가가 보입니다.",
+        negative: "글로우픽/화해 외 대형 유통 리뷰 모수는 아직 작아 대중 검증은 약한 편입니다. 워터 타입이라 무거운 코팅감이나 즉각적인 ‘물미역’ 효과를 기대하면 심심하게 느낄 수 있고, 탈모/두피 기능성 카피가 모발 복구 체감과 다르게 받아들여질 수 있습니다.",
+        clinical: "비프로젝트 공식 상세에서 리얼 본딩·워터 트리트먼트·비건/클린 포지션은 확인되지만, 현재 공개 상세 텍스트에서 별도 인체적용시험 기관명·기간·대상자 수는 확인되지 않았습니다. 공식 이미지상 Allure Korea 2023 Best of Beauty Clean Winner는 수상 근거로 별도 분류했습니다.",
+        manufacturer: "비프로젝트",
+        seller: "비프로젝트",
+        siliconeStatus: "no",
+        silicone: "화해/글로우픽 공개 성분 정보와 비건·클린 포지션 기준 실리콘명 성분은 확인되지 않습니다.",
+        functionRead: "워터 트리트먼트 제형으로 빠른 도포와 헹굼, LPP/비오틴/두피·모발 케어 카피를 통해 가벼운 컨디셔닝과 수분·영양감을 주는 제품입니다.",
+        achievement: "공식 이미지에 Allure Korea 2023 Best of Beauty Clean Winner, Vegan 마크가 노출됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "가격·용량·성과 마크 확인. 전성분/제조사 보강 필요.",
+        sources: ["비프로젝트 공식몰", "다나와 가격비교", "화해 검색 스니펫"]
+      }
+    ];
+
+    const tbody = document.getElementById("rows");
+    const search = document.getElementById("search");
+    const typeFilter = document.getElementById("typeFilter");
+    const siliconeFilter = document.getElementById("siliconeFilter");
+    const reset = document.getElementById("reset");
+    let sort = { key: "salePrice", dir: "asc" };
+
+    const won = value => Number.isFinite(value) ? `${value.toLocaleString()}원` : "확인 필요";
+
+    function siliconeLabel(value) {
+      if (value === "yes") return '<span class="tag danger">실리콘 있음</span>';
+      if (value === "no") return '<span class="tag good">실리콘 확인 안 됨</span>';
+      return '<span class="tag warn">확인 필요</span>';
+    }
+
+    function reviewDestination(product) {
+      const links = product.links || [{ label: "상세페", href: product.url }];
+      const preferredLabel = product.reviewChannel || (links.some(link => link.label === "올리브영") ? "올리브영" : links[0]?.label);
+      return links.find(link => link.label === preferredLabel) || links[0] || { label: "상세페", href: product.url };
+    }
+
+    function thumb(product) {
+      const destination = reviewDestination(product);
+      const title = `${destination.label} 상세페이지로 이동`;
+      if (product.image) {
+        return `<a class="img-link" href="${destination.href}" target="_blank" rel="noreferrer" aria-label="${product.brand} ${product.name} ${title}" title="${title}"><div class="img"><img alt="${product.brand} ${product.name}" src="${product.image}" loading="lazy" onerror="this.parentElement.textContent='이미지 확인 필요'"></div></a>`;
+      }
+      return `<a class="img-link" href="${destination.href}" target="_blank" rel="noreferrer" aria-label="${product.brand} ${product.name} ${title}" title="${title}"><div class="img">${product.brand}<br>이미지<br>확인 필요</div></a>`;
+    }
+
+    function detail(product) {
+      return `
+        <details>
+          <summary>긍정/부정 리뷰 보기</summary>
+          <div class="detail-grid">
+            <div class="detail-block"><b>긍정 리뷰</b><p>${product.positive}</p></div>
+            <div class="detail-block"><b>부정 리뷰</b><p>${product.negative}</p></div>
+            <div class="detail-block"><b>출처/메모</b><p>${product.sources.join(" · ")}</p></div>
+          </div>
+        </details>
+      `;
+    }
+
+    function linkList(product) {
+      const links = product.links || [{ label: "상세페", href: product.url }];
+      return `<div class="link-list">${links.map(link => {
+        const official = link.label === "자사몰" ? " official" : "";
+        return `<a class="channel-link${official}" href="${link.href}" target="_blank" rel="noreferrer">${link.label}</a>`;
+      }).join("")}</div>`;
+    }
+
+    const clinicalData = {
+      "츠바키": {
+        status: "yes",
+        center: "상세 이미지 내 기관명 미노출",
+        items: ["6대 극손상모 개선 효과", "모발 윤기 개선", "큐티클 거칠기 개선", "갈라진 큐티클/모발 끝 개선"],
+        details: [
+          { title: "6대 극손상모 개선 효과", note: "상세/광고 소재에서 인체적용시험 문구가 확인됩니다. 시험기관·기간·대상자 수는 공개 텍스트에서 확인되지 않았습니다." }
+        ]
+      },
+      "어노브": {
+        status: "yes",
+        center: "한국피부과학연구원",
+        items: ["큐티클 거칠기 감소", "사용자 만족도 설문"],
+        details: [
+          { title: "큐티클 거칠기 감소", target: "시험대상자", count: "23명", note: "사용 전과 3회 사용 후 비교. 상세 소재에 개인차 있음 고지가 붙습니다." },
+          { title: "사용자 만족도 설문", count: "23명", note: "제품 사용 후 만족도 평가로 노출됩니다." }
+        ]
+      },
+      "프롬랩스": {
+        status: "yes",
+        center: "피엔케이피부임상연구센타㈜",
+        items: ["모발 속 단백질 결합력 증가", "모발 겉면 단백질 결합력 증가", "사용자 만족도 설문"],
+        details: [
+          { title: "모발 속 단백질 결합력 증가", note: "인모 테스트 기준 1회 사용 시 321~322% 증가 문구가 확인됩니다." },
+          { title: "모발 겉면 단백질 결합력 증가", note: "인모 테스트 기준 1회 사용 시 497% 증가 문구가 확인됩니다." },
+          { title: "사용자 만족도 설문", target: "시험대상자", count: "23명", note: "광고 소재에 노출됩니다. 열·자외선 보호 임상은 노워시 스프레이/3종 세트 맥락으로 분리 확인됩니다." }
+        ]
+      },
+      "그로우어스": {
+        status: "none",
+        center: "임상센터 고지 미확인",
+        items: ["168시간 지속 극손상모 리페어", "모발 멜팅 접착 헤어팩", "청담샵 공동개발"],
+        details: [
+          { title: "168시간 지속 극손상모 리페어", note: "올리브영/자사몰/글로우픽 공개 텍스트에서 확인되는 핵심 기능 카피입니다. 시험기관·기간·대상자 수는 공개 텍스트에 미노출입니다." },
+          { title: "모발 멜팅 접착 헤어팩", note: "손 온도에 녹아 흡수되는 텍스처, 손상모에 빈틈없이 밀착된다는 제품 설명이 확인됩니다." },
+          { title: "청담샵 공동개발", note: "자사몰과 SNS 소재에서 청담샵 공동개발/3분 클리닉 맥락으로 노출됩니다. 임상 근거가 아닌 개발·마케팅 근거로 분리했습니다." }
+        ]
+      },
+      "모레모": {
+        status: "yes",
+        center: "피엔케이피부임상연구센타㈜",
+        items: ["24시간 모발 컬링 유지", "모발 볼륨 개선 및 24시간 지속", "열기구 사용 시 탄력/갈라짐/거칠기 개선", "모발 단백질 흡착 및 2주 지속"],
+        details: [
+          { title: "24시간 모발 컬링 유지", note: "리커버리 밤 B 루비 에디션 출시 보도 기준 임상시험 결과로 확인됩니다." },
+          { title: "모발 볼륨 개선 및 24시간 지속", note: "출시 보도 기준 임상시험 결과로 확인됩니다." },
+          { title: "열기구 사용 시 모발 손상 개선", note: "모발 탄력, 갈라짐, 거칠기 개선 문구가 확인됩니다." },
+          { title: "모발 단백질 흡착 및 2주 지속", note: "인체적용시험 결과로 확인됩니다. 최근 챠미키티 에디션 소재에는 2025.04 시험 문구가 노출됩니다." }
+        ]
+      },
+      "실크테라피": {
+        status: "yes",
+        center: "P&K피부임상연구센터",
+        items: ["180도 열기구로 인한 모발 손상 보호 효과", "염색 손상모발 큐티클 개선 효과", "모발 볼륨 증가", "모발 샤인효과 지속"],
+        details: [
+          { title: "180도 열기구로 인한 모발 손상 보호 효과", period: "20.03.30~20.04.07", target: "만 20~55세", count: "21명", note: "무도포 모발과 오리지널 에센스 도포 모발을 열기구 사용 전후로 비교한 상세 이미지가 확인됩니다." },
+          { title: "염색 손상모발 큐티클 개선 효과", period: "20.03.30~20.04.07", target: "만 20~55세", count: "21명", note: "1주 사용 후 펌/염색으로 인한 손상모 개선에 도움 문구가 확인됩니다." },
+          { title: "모발 볼륨 증가", note: "1회 사용 직후 27% 모발 볼륨 증가 문구가 확인됩니다." },
+          { title: "모발 샤인효과 지속", note: "24시간 모발 샤인 지속력 문구가 확인됩니다." }
+        ]
+      },
+      "피노": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["큐티클 케어", "염색모 컬러 유지 도움"],
+        details: [
+          { title: "큐티클 케어", note: "국내 상세/광고 소재에서 헤어 고민 케어 문구로 확인됩니다. 기관·기간·대상자 수는 확인되지 않았습니다." },
+          { title: "염색모 컬러 유지 도움", note: "효능/사용감 주장으로 분류했습니다." }
+        ]
+      },
+      "박준뷰티랩": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["48시간 모발 단백질 코팅 지속"],
+        details: [
+          { title: "48시간 모발 단백질 코팅 지속", note: "LPP 프로틴 콤플렉스 기반 코팅 지속 문구가 확인됩니다. 기관·기간·대상자 수는 확인되지 않았습니다." }
+        ]
+      },
+      "바이오레시피": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["1초 데미지 케어", "6대 극손상모 개선", "LPP 단백질 케어"],
+        details: [
+          { title: "1초 데미지 케어", note: "무신사/유통 상세 카피 기준입니다. 시험기관·기간·대상자 수는 공개 텍스트에서 확인되지 않았습니다." },
+          { title: "6대 극손상모 개선", note: "효능 카피로 확인되며, 기관 고지형 임상 여부는 추가 확인이 필요합니다." }
+        ]
+      },
+      "러쉬": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["아몬드밀크/오트밀크/레몬주스 기반 컨디셔닝", "Allure Best of Beauty 2025 수상"],
+        details: [
+          { title: "컨디셔닝 효능", note: "러쉬 공식 페이지 기준 원료 효능 설명은 확인됩니다. 인체적용시험 기관·기간·대상자 수는 확인되지 않았습니다." },
+          { title: "수상 근거", note: "Allure Best of Beauty Award 2025, Pure Beauty Global Awards 2021 Best New Hair Styling Product 수상 문구가 확인됩니다." }
+        ]
+      },
+      "케라스타즈": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["Fibra-KAP™ 기반 극손상 케어", "탄력/정돈/부드러움 개선"],
+        details: [
+          { title: "극손상 모발 케어", note: "케라스타즈 공식 페이지에서 Fibra-KAP™+Resurrection SAP 기반 케어를 설명합니다." },
+          { title: "탄력/정돈/부드러움 개선", note: "올리브영/컬리 상세에서 초극손상 집중 영양 케어로 확인됩니다. 기관·기간·대상자 수는 미노출입니다." }
+        ]
+      },
+      "아베다": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["3-레이어 헤어 리페어", "본드 결합 강화", "최대 약 230도 열 손상 보호"],
+        details: [
+          { title: "본드 결합 강화", note: "아베다 공식 페이지에서 3-레이어 헤어 리페어와 본드 결합 강화 문구가 확인됩니다." },
+          { title: "열 손상 보호", note: "최대 약 230도 열 손상 보호 문구가 확인됩니다. 국내 인체적용시험 기관·기간·대상자 수는 미노출입니다." }
+        ]
+      },
+      "올라플렉스": {
+        status: "yes",
+        center: "기관명 미노출",
+        items: ["본드 빌딩 기술", "볼륨 증가", "모발 끊어짐 감소"],
+        details: [
+          { title: "본드 빌딩 기술", note: "Bis-Aminopropyl Diglycol Dimaleate 기반 기술이 핵심 근거입니다." },
+          { title: "볼륨 증가/모발 끊어짐 감소", note: "올라플렉스 코리아 광고 소재에서 임상 테스트 완료, 즉각적인 볼륨 2배 증가, 모발 끊어짐 60% 감소 문구가 확인됩니다. No.3 상세의 기관·기간·대상자 수는 미확인입니다." }
+        ]
+      },
+      "미쟝센": {
+        status: "yes",
+        center: "피엔케이피부임상연구센터",
+        items: ["모발강화율 개선", "펌 형성력 개선", "INNERPLEX™ 본딩 케어"],
+        details: [
+          { title: "모발강화율 개선", period: "23.02.06~23.02.16", target: "인모트레스", count: "군당 n=30", note: "이너플렉스 모발강화제+샴푸+트리트먼트 1일 사용 조건, 비교대상 자사 샴푸 기준입니다." },
+          { title: "펌 형성력 개선", note: "이너플렉스 10일 이상 사용으로 강화된 모발은 펌 형성력도 개선된다는 공식 보도자료 문구가 확인됩니다." },
+          { title: "INNERPLEX™ 본딩 케어", note: "아모스프로페셔널과 공동개발한 기술 근거입니다." }
+        ]
+      },
+      "클로란": {
+        status: "none",
+        center: "FLECK 외 2012 in-vitro study",
+        items: ["쿠푸아수 버터 영양력", "시어버터 대비 1.5배 영양력"],
+        details: [
+          { title: "쿠푸아수 버터 원료 특성", note: "FLECK 외 2012 in-vitro water absorption study가 근거로 표시됩니다. 완제품 대상 국내 인체적용시험은 확인되지 않았습니다." }
+        ]
+      },
+      "비프로젝트": {
+        status: "none",
+        center: "임상센터 고지 없음",
+        items: ["리얼 본딩 워터 트리트먼트", "비건/클린 포지션"],
+        details: [
+          { title: "리얼 본딩 워터 트리트먼트", note: "공식 상세의 기능 포지션으로 확인됩니다. 시험기관·기간·대상자 수는 확인되지 않았습니다." },
+          { title: "수상 근거", note: "Allure Korea 2023 Best of Beauty Clean Winner는 임상 근거가 아닌 수상 근거로 분리했습니다." }
+        ]
+      }
+    };
+
+    function clinical(product) {
+      const data = clinicalData[product.brand] || {
+        status: "unknown",
+        center: "확인 필요",
+        items: ["상세페이지 추가 확인 필요"],
+        details: [{ title: "확인 필요", note: product.clinical }]
+      };
+      const isNone = data.status === "none";
+      const statusClass = isNone ? "warn" : "good";
+      const statusText = isNone ? "임상 없음" : "임상 있음";
+      const itemLabel = isNone ? "비임상 근거" : "임상항목";
+      const itemList = data.items.map(item => `<li>${item}</li>`).join("");
+      const details = data.details.map((test, index) => {
+        const meta = [
+          test.period && `<div><b>[연구기간]</b> ${test.period}</div>`,
+          test.target && `<div><b>[대상]</b> ${test.target}</div>`,
+          test.count && `<div><b>[인원]</b> ${test.count}</div>`,
+          test.note && `<div><b>[메모]</b> ${test.note}</div>`
+        ].filter(Boolean).join("");
+        return `<div class="clinical-test"><strong>${index + 1}. ${test.title}</strong><div class="clinical-meta">${meta}</div></div>`;
+      }).join("");
+      return `
+        <div class="clinical">
+          <p><b>[임상 여부]</b> <span class="tag ${statusClass}">${statusText}</span></p>
+          <p><b>[임상센터]</b> ${data.center}</p>
+          <p><b>[${itemLabel}]</b> 총 ${data.items.length}개</p>
+          <ul>${itemList}</ul>
+          <details>
+            <summary>상세 내용</summary>
+            <div class="detail-grid">${details}</div>
+          </details>
+        </div>
+      `;
+    }
+
+    const columnStorageKey = "orotHairResearchColumnOrderV1";
+    const headerRow = document.getElementById("headerRow");
+    const columns = [
+      { id: "image", label: "대표이미지", width: 92, locked: true, render: product => thumb(product) },
+      { id: "product", label: "브랜드명 + 제품명", width: 230, locked: true, cellClass: "product", render: product => `<strong>${product.brand}<br>${product.name}</strong>` },
+      { id: "listPrice", label: "정가", width: 112, sortKey: "listPrice", render: product => `<span class="num">${won(product.listPrice)}</span>` },
+      { id: "salePrice", label: "상시할인가", width: 126, sortKey: "salePrice", render: product => `<span class="num">${won(product.salePrice)}</span>` },
+      { id: "volumeValue", label: "용량", width: 110, sortKey: "volumeValue", render: product => `<span class="num">${product.volume}</span>` },
+      { id: "per100", label: "100ml/g당", width: 128, sortKey: "per100", render: product => `<span class="num">${won(product.per100)}</span>` },
+      { id: "type", label: "타입", width: 96, render: product => `<span class="tag ${product.type === "wash-off" ? "good" : "sale"}">${product.type}</span>` },
+      { id: "links", label: "판매 채널", width: 150, render: product => linkList(product) },
+      { id: "perception", label: "사람들에게 어떻게 인식되는지", width: 250, render: product => product.perception },
+      { id: "review", label: "리뷰 분석", width: 300, render: product => detail(product) },
+      { id: "clinical", label: "임상 관련", width: 280, render: product => clinical(product) },
+      { id: "manufacturer", label: "제조사", width: 190, render: product => product.manufacturer },
+      { id: "seller", label: "책임판매업자", width: 190, render: product => product.seller },
+      { id: "silicone", label: "실리콘/유사 성분", width: 210, render: product => `<div class="tag-list">${siliconeLabel(product.siliconeStatus)}<span>${product.silicone}</span></div>` },
+      { id: "functionRead", label: "전성분 기반 기능 해석", width: 260, render: product => product.functionRead },
+      { id: "achievement", label: "성과·샤라웃", width: 250, render: product => product.achievement },
+      { id: "model", label: "현재 광고모델", width: 170, render: product => product.model },
+      { id: "confidence", label: "검증 메모", width: 190, render: product => product.confidence }
+    ];
+    const fixedColumns = columns.filter(column => column.locked);
+    const movableColumns = columns.filter(column => !column.locked);
+    const columnMap = Object.fromEntries(columns.map(column => [column.id, column]));
+    const defaultColumnOrder = movableColumns.map(column => column.id);
+    let columnOrder = loadColumnOrder();
+    let draggedColumnId = null;
+    let columnDragMoved = false;
+    let pointerDrag = null;
+
+    function loadColumnOrder() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(columnStorageKey) || "[]");
+        const valid = stored.filter(id => defaultColumnOrder.includes(id));
+        const missing = defaultColumnOrder.filter(id => !valid.includes(id));
+        return [...valid, ...missing];
+      } catch {
+        return [...defaultColumnOrder];
+      }
+    }
+
+    function orderedColumns() {
+      return [...fixedColumns, ...columnOrder.map(id => columnMap[id]).filter(Boolean)];
+    }
+
+    function saveColumnOrder() {
+      localStorage.setItem(columnStorageKey, JSON.stringify(columnOrder));
+    }
+
+    function moveColumn(sourceId, targetId) {
+      if (!sourceId || !targetId || sourceId === targetId) return;
+      const from = columnOrder.indexOf(sourceId);
+      const to = columnOrder.indexOf(targetId);
+      if (from < 0 || to < 0) return;
+      const next = [...columnOrder];
+      const [moved] = next.splice(from, 1);
+      next.splice(to, 0, moved);
+      columnOrder = next;
+      saveColumnOrder();
+      renderHeader();
+      render();
+    }
+
+    function bindHeaderEvents() {
+      headerRow.querySelectorAll("th.draggable-col").forEach(th => {
+        th.addEventListener("dragstart", event => {
+          draggedColumnId = th.dataset.colId;
+          columnDragMoved = false;
+          event.dataTransfer.effectAllowed = "move";
+          event.dataTransfer.setData("text/plain", draggedColumnId);
+          th.classList.add("dragging");
+        });
+
+        th.addEventListener("dragenter", () => {
+          if (draggedColumnId && draggedColumnId !== th.dataset.colId) th.classList.add("drop-target");
+        });
+
+        th.addEventListener("dragover", event => {
+          event.preventDefault();
+          columnDragMoved = true;
+          event.dataTransfer.dropEffect = "move";
+        });
+
+        th.addEventListener("dragleave", () => th.classList.remove("drop-target"));
+
+        th.addEventListener("drop", event => {
+          event.preventDefault();
+          th.classList.remove("drop-target");
+          moveColumn(draggedColumnId || event.dataTransfer.getData("text/plain"), th.dataset.colId);
+        });
+
+        th.addEventListener("dragend", () => {
+          draggedColumnId = null;
+          headerRow.querySelectorAll("th").forEach(node => node.classList.remove("dragging", "drop-target"));
+        });
+
+        th.addEventListener("pointerdown", event => {
+          if (event.button !== 0) return;
+          pointerDrag = {
+            id: th.dataset.colId,
+            startX: event.clientX,
+            startY: event.clientY,
+            moved: false
+          };
+          th.setPointerCapture(event.pointerId);
+        });
+
+        th.addEventListener("pointermove", event => {
+          if (!pointerDrag || pointerDrag.id !== th.dataset.colId) return;
+          const dx = Math.abs(event.clientX - pointerDrag.startX);
+          const dy = Math.abs(event.clientY - pointerDrag.startY);
+          if (dx < 8 && dy < 8) return;
+          pointerDrag.moved = true;
+          columnDragMoved = true;
+          headerRow.querySelectorAll("th").forEach(node => node.classList.remove("dragging", "drop-target"));
+          th.classList.add("dragging");
+          const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("th.draggable-col");
+          if (target && target.dataset.colId !== pointerDrag.id) target.classList.add("drop-target");
+        });
+
+        th.addEventListener("pointerup", event => {
+          if (!pointerDrag || pointerDrag.id !== th.dataset.colId) return;
+          const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("th.draggable-col");
+          const sourceId = pointerDrag.id;
+          const moved = pointerDrag.moved;
+          pointerDrag = null;
+          headerRow.querySelectorAll("th").forEach(node => node.classList.remove("dragging", "drop-target"));
+          if (moved && target) moveColumn(sourceId, target.dataset.colId);
+        });
+
+        th.addEventListener("mousedown", event => {
+          if (event.button !== 0) return;
+          pointerDrag = {
+            id: th.dataset.colId,
+            startX: event.clientX,
+            startY: event.clientY,
+            moved: false
+          };
+          event.preventDefault();
+        });
+      });
+
+      headerRow.querySelectorAll("th.sortable").forEach(th => {
+        th.addEventListener("click", () => {
+          if (columnDragMoved) {
+            columnDragMoved = false;
+            return;
+          }
+          const key = th.dataset.key;
+          sort = sort.key === key ? { key, dir: sort.dir === "asc" ? "desc" : "asc" } : { key, dir: "asc" };
+          renderHeader();
+          render();
+        });
+      });
+    }
+
+    function renderHeader() {
+      headerRow.innerHTML = orderedColumns().map(column => {
+        const sortable = column.sortKey ? " sortable" : "";
+        const draggable = column.locked ? "" : " draggable-col";
+        const active = column.sortKey === sort.key ? ` active ${sort.dir}` : "";
+        const dataKey = column.sortKey ? ` data-key="${column.sortKey}"` : "";
+        const draggableAttr = column.locked ? "" : ' title="드래그해서 칼럼 순서 변경"';
+        return `<th class="${`${sortable}${draggable}${active}`.trim()}" data-col-id="${column.id}"${dataKey}${draggableAttr} style="width:${column.width}px">${column.label}</th>`;
+      }).join("");
+      bindHeaderEvents();
+    }
+
+    document.addEventListener("mousemove", event => {
+      if (!pointerDrag) return;
+      const dx = Math.abs(event.clientX - pointerDrag.startX);
+      const dy = Math.abs(event.clientY - pointerDrag.startY);
+      if (dx < 8 && dy < 8) return;
+      pointerDrag.moved = true;
+      columnDragMoved = true;
+      headerRow.querySelectorAll("th").forEach(node => node.classList.remove("dragging", "drop-target"));
+      headerRow.querySelector(`th[data-col-id="${pointerDrag.id}"]`)?.classList.add("dragging");
+      const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("th.draggable-col");
+      if (target && target.dataset.colId !== pointerDrag.id) target.classList.add("drop-target");
+    });
+
+    document.addEventListener("mouseup", event => {
+      if (!pointerDrag) return;
+      const sourceId = pointerDrag.id;
+      const moved = pointerDrag.moved;
+      pointerDrag = null;
+      const target = document.elementFromPoint(event.clientX, event.clientY)?.closest("th.draggable-col");
+      headerRow.querySelectorAll("th").forEach(node => node.classList.remove("dragging", "drop-target"));
+      if (moved && target) moveColumn(sourceId, target.dataset.colId);
+    });
+
+    function render() {
+      const q = search.value.trim().toLowerCase();
+      const type = typeFilter.value;
+      const silicone = siliconeFilter.value;
+      let rows = products.filter(product => {
+        const haystack = [
+          product.brand, product.name, product.slideName, product.perception,
+          product.positive, product.negative, product.silicone, product.functionRead,
+          product.achievement, product.model, product.confidence
+        ].join(" ").toLowerCase();
+        return (!q || haystack.includes(q))
+          && (!type || product.type === type)
+          && (!silicone || product.siliconeStatus === silicone);
+      });
+
+      rows = rows.sort((a, b) => {
+        const av = a[sort.key];
+        const bv = b[sort.key];
+        const result = av === bv ? a.brand.localeCompare(b.brand, "ko") : av - bv;
+        return sort.dir === "asc" ? result : -result;
+      });
+
+      const visibleColumns = orderedColumns();
+      tbody.innerHTML = rows.map(product => `
+        <tr>
+          ${visibleColumns.map(column => `<td${column.cellClass ? ` class="${column.cellClass}"` : ""}>${column.render(product)}</td>`).join("")}
+        </tr>
+      `).join("");
+    }
+
+    function updateMetrics() {
+      const wash = products.filter(p => p.type === "wash-off").length;
+      const leave = products.filter(p => p.type === "leave-in").length;
+      const silicone = products.filter(p => p.siliconeStatus === "yes").length;
+      const avg = Math.round(products.reduce((sum, p) => sum + p.per100, 0) / products.length);
+      document.getElementById("metricCount").textContent = `${products.length}개`;
+      document.getElementById("metricWash").textContent = `${wash}개`;
+      document.getElementById("metricLeave").textContent = `${leave}개`;
+      document.getElementById("metricSilicone").textContent = `${silicone}개`;
+      document.getElementById("metricAvg").textContent = won(avg);
+    }
+
+    [search, typeFilter, siliconeFilter].forEach(el => el.addEventListener("input", render));
+    reset.addEventListener("click", () => {
+      search.value = "";
+      typeFilter.value = "";
+      siliconeFilter.value = "";
+      render();
+    });
+
+    updateMetrics();
+    renderHeader();
+    render();
+  </script>
+</body>
+</html>
