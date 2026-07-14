@@ -134,7 +134,7 @@
       margin: 0 auto;
       padding: 8px 30px 16px;
       display: grid;
-      grid-template-columns: 1fr auto auto auto auto;
+      grid-template-columns: 1fr auto auto auto auto auto auto;
       gap: 10px;
       align-items: center;
     }
@@ -172,6 +172,12 @@
       padding: 0 16px;
       font-weight: 700;
       cursor: pointer;
+    }
+
+    .btn.secondary {
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      color: var(--text-normal);
     }
 
     .content {
@@ -589,6 +595,8 @@
         <option value="unknown">확인 필요</option>
       </select>
       <button class="btn" id="reset">필터 초기화</button>
+      <button class="btn secondary" id="saveColumns" type="button">칼럼 순서 저장</button>
+      <button class="btn secondary" id="resetColumns" type="button">칼럼 순서 초기화</button>
     </section>
 
     <main class="content">
@@ -1422,6 +1430,8 @@
     const categoryFilter = document.getElementById("categoryFilter");
     const siliconeFilter = document.getElementById("siliconeFilter");
     const reset = document.getElementById("reset");
+    const saveColumns = document.getElementById("saveColumns");
+    const resetColumns = document.getElementById("resetColumns");
     let sort = { key: "salePrice", dir: "asc" };
 
     const won = value => Number.isFinite(value) ? `${value.toLocaleString()}원` : "확인 필요";
@@ -1806,6 +1816,13 @@
       localStorage.setItem(columnStorageKey, JSON.stringify(columnOrder));
     }
 
+    function resetColumnOrder() {
+      columnOrder = [...defaultColumnOrder];
+      localStorage.removeItem(columnStorageKey);
+      renderHeader();
+      render();
+    }
+
     function moveColumn(sourceId, targetId) {
       if (!sourceId || !targetId || sourceId === targetId) return;
       const from = columnOrder.indexOf(sourceId);
@@ -1815,7 +1832,6 @@
       const [moved] = next.splice(from, 1);
       next.splice(to, 0, moved);
       columnOrder = next;
-      saveColumnOrder();
       renderHeader();
       render();
     }
@@ -2000,6 +2016,17 @@
       siliconeFilter.value = "";
       render();
     });
+
+    saveColumns.addEventListener("click", () => {
+      saveColumnOrder();
+      const label = saveColumns.textContent;
+      saveColumns.textContent = "저장됨";
+      window.setTimeout(() => {
+        saveColumns.textContent = label;
+      }, 1200);
+    });
+
+    resetColumns.addEventListener("click", resetColumnOrder);
 
     updateMetrics();
     renderHeader();
