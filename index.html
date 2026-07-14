@@ -430,6 +430,21 @@
     .tag.info { color: #1d4ed8; border-color: #bfdbfe; background: #eff6ff; }
     .tag.category { color: #334155; border-color: #dbeafe; background: #eff6ff; }
 
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 32px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: var(--link);
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+    }
+
     a {
       color: var(--link);
       text-decoration: none;
@@ -479,6 +494,45 @@
       color: var(--text-normal);
       font-size: 12px;
       line-height: 18px;
+    }
+
+    .ingredient-panel {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ingredient-panel > p {
+      margin: 0;
+    }
+
+    .ingredient-toggle {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-s);
+      background: #f8fafc;
+      padding: 8px 10px;
+    }
+
+    .ingredient-toggle summary {
+      cursor: pointer;
+      color: var(--text-strong);
+      font-weight: 800;
+    }
+
+    .ingredient-copy {
+      margin-top: 8px;
+      white-space: pre-wrap;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      color: var(--text-normal);
+      font-size: 12px;
+      line-height: 19px;
+    }
+
+    .ingredient-source {
+      margin-top: 8px;
+      color: var(--text-muted);
+      font-size: 11px;
+      line-height: 16px;
     }
 
     .clinical {
@@ -916,6 +970,10 @@
         image: "assets/orot-hair-products/moremo-water-miracle10.jpg",
         brand: "모레모",
         name: "워터 트리트먼트 미라클 10 475ml 기획",
+        waterRank: 1,
+        rankScore: 94,
+        rankEvidence: "올리브영 단품 판매, 화해·쿠팡·글로우픽·자사몰까지 채널 확산이 가장 넓고, ‘원조 물미역/10초 워터 트리트먼트’ 인식이 강합니다. 올리브영 상세와 글로우픽/유튜브 리뷰 신호가 오래 누적되어 카테고리 대표 SKU로 판단했습니다.",
+        searchSignal: "검색 신호 상. 구글/유튜브 검색에서 제품명·물미역·워터트리트먼트 조합 노출이 많고, 네이버/인스타는 정확 검색량 API 미확보라 공개 검색 노출 강도로만 반영했습니다.",
         slideName: "모레모 워터 트리트먼트 미라클 10 물미역 무실리콘",
         clinicalKey: "모레모 워터 트리트먼트 미라클 10",
         listPrice: 49000,
@@ -946,9 +1004,327 @@
         sources: ["올리브영", "모레모 자사몰", "화해", "쿠팡", "바끄로 보도", "SNS/유튜브 검색 결과"]
       },
       {
+        image: "assets/orot-hair-products/grabity-water-treatment.jpg",
+        brand: "그래비티",
+        name: "헤어리프팅 워터 트리트먼트 270ml",
+        waterRank: 2,
+        rankScore: 89,
+        rankEvidence: "올리브영 평점 4.9·리뷰 850건, 올리브영 전 채널 전체 랭킹 1위 보도, 최근 인스타 광고/릴스 노출이 확인됩니다. 리뷰 총량은 달리프보다 작지만 최근성·랭킹 신호가 매우 강해 2위로 판단했습니다.",
+        searchSignal: "검색 신호 상. 구글 검색에서 올리브영 단품, 보도자료, 인스타 릴스가 함께 잡히고 ‘그래비티 워터 트리트먼트’ 최근 콘텐츠가 많습니다.",
+        slideName: "그래비티 헤어리프팅 워터 트리트먼트",
+        clinicalKey: "그래비티 헤어리프팅 워터 트리트먼트",
+        listPrice: 34000,
+        salePrice: 28900,
+        volume: "270ml",
+        volumeValue: 270,
+        per100: 10704,
+        type: "wash-off",
+        url: "https://m.oliveyoung.co.kr/m/G.do?goodsNo=A000000217898",
+        links: [
+          { label: "올리브영", href: "https://m.oliveyoung.co.kr/m/G.do?goodsNo=A000000217898" },
+          { label: "자사몰", href: "https://grabity.co.kr/" },
+          { label: "랭킹 보도", href: "https://v.daum.net/v/20251121144749411" }
+        ],
+        perception: "샴푸 히트 이후 나온 볼륨 시너지 워터 트리트먼트로, 가늘고 힘 없는 모발과 정수리 볼륨 니즈가 강한 제품으로 인식됩니다.",
+        positive: "올리브영 전 채널 전체 랭킹 1위 보도와 KAIST 특허기술 메시지가 강합니다. 컬리 후기 400건대, SSG/11번가 가격비교 노출도 확인되어 올리브영 외 채널 확산도 있습니다. 샴푸와 함께 쓰는 볼륨 루틴, 윤기, 가벼운 사용감 기대가 핵심입니다.",
+        negative: "가격대가 높고, 즉각적인 물미역감보다 볼륨 포지션이 강합니다. 극손상모가 무거운 코팅감이나 깊은 영양감을 기대하면 체감이 다를 수 있습니다.",
+        clinical: "사용자 제공 상세페이지 캡처 기준 한국인터텍테스팅서비스㈜, 2023 모발 볼륨 사용 전/사용 직후 비교 시험이 확인됩니다. 상세 소재에는 시험 환경에 따른 결과값 차이와 고온에 의한 일시적 효과 한정 고지가 함께 표시됩니다. SNS 광고 소재에서는 순간 볼륨 40.42% 증가와 48시간 볼륨 유지 테스트 완료 문구도 확인됩니다.",
+        manufacturer: "㈜폴리페놀팩토리",
+        seller: "㈜폴리페놀팩토리",
+        siliconeStatus: "no",
+        silicone: "공식몰 검색 결과에 No Silicon 표기가 확인됩니다. 전성분 전문은 원문 재확인이 필요합니다.",
+        functionRead: "폴리페놀 기반 모발 단백질 부착 메시지를 앞세운 볼륨형 워터 트리트먼트입니다. 부드러움보다 모발 리프팅·탄력 체감에 초점이 있습니다.",
+        achievement: "2025.11.21 기준 올리브영 전 채널 전체 랭킹 1위 보도가 확인됩니다. 컬리 상품페이지 기준 후기 404건, 11번가 가격비교 기준 실리콘프리·힘없는모발 포지션도 확인됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "올리브영 단품 URL·가격·용량·랭킹 보도 확인. 사용자 제공 상세페이지 캡처 기준 한국인터텍테스팅서비스㈜ 모발 볼륨 시험 확인. 제조/책임판매는 브랜드 운영사 기준으로 정리.",
+        sources: ["올리브영", "그래비티 공식몰", "마켓컬리", "SSG", "11번가", "사용자 제공 상세페이지 캡처", "비즈월드/다음 보도"]
+      },
+      {
+        image: "assets/orot-hair-products/daleaf-better-root-water-treatment.jpg",
+        brand: "달리프",
+        name: "클로렐라 베러 루트 워터트리트먼트 200ml 더블기획",
+        waterRank: 4,
+        rankScore: 84,
+        rankEvidence: "올리브영 평점 4.7·리뷰 2,821건, 쿠팡 달리프 스토어 노출 리뷰 3,911건, 글로우픽 4.4·리뷰 68건·헤어트리트먼트 68위가 확인됩니다. 리뷰 규모와 프로브엠 사용성 평가 신호가 있어 상위권으로 판단했습니다.",
+        searchSignal: "검색 신호 중상. 구글 검색에서 올리브영·쿠팡·화해·글로우픽이 모두 노출됩니다. 인스타/유튜브 신호는 그래비티·모레모보다 약합니다.",
+        slideName: "달리프 클로렐라 베러 루트 워터트리트먼트",
+        clinicalKey: "달리프 클로렐라 베러 루트 워터트리트먼트",
+        listPrice: 22000,
+        salePrice: 18600,
+        volume: "200ml×2",
+        volumeValue: 400,
+        per100: 4650,
+        type: "wash-off",
+        url: "https://www.coupang.com/vp/products/6199503634",
+        links: [
+          { label: "올리브영", href: "https://ma.oliveyoung.co.kr/m/G.do?goodsNo=A000000125575" },
+          { label: "쿠팡", href: "https://www.coupang.com/vp/products/6199503634" },
+          { label: "화해", href: "https://www.hwahae.co.kr/goods/%EB%8B%AC%EB%A6%AC%ED%94%84-%ED%81%B4%EB%A1%9C%EB%A0%90%EB%9D%BC-%EB%B2%A0%EB%9F%AC-%EB%A3%A8%ED%8A%B8-%EC%9B%8C%ED%84%B0-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8-200ml/14281" }
+        ],
+        reviewChannel: "쿠팡",
+        perception: "두피까지 같이 케어하는 워터트리트먼트로 인식됩니다. 손상모와 탈모증상완화 니즈가 함께 있는 소비자에게 맞는 제품입니다.",
+        positive: "쿠팡 리뷰 규모가 크고, 부드러운 빗질·차분함·정전기 완화가 반복적으로 언급됩니다. 200ml 더블 기획 기준 100ml당 가격 접근성도 좋은 편입니다.",
+        negative: "두피 기능성 제품 성격이 있어 향·쿨링감·사용감 호불호가 생길 수 있습니다. 물미역형 즉각 코팅감만 기대하면 다르게 느껴질 수 있습니다.",
+        clinical: "사용자 제공 올리브영 상세 캡처 기준 ㈜프로브엠 임상연구센터 사용성 평가가 확인됩니다. 2주 사용 후 즉각적으로 부드러워진 느낌, 모발 끊어짐 감소 된 느낌, 탈모가 개선 된 느낌, 제품의 만족스러움 항목이 모두 100%로 표시됩니다. 올리브영 상품명에서는 탈모증상완화 기능성 표기도 확인됩니다.",
+        manufacturer: "㈜서울화장품",
+        seller: "달리프㈜",
+        siliconeStatus: "no",
+        silicone: "비교 콘텐츠에서 실리콘 미첨가 제품군으로 언급됩니다. 전성분 원문 재확인이 필요합니다.",
+        functionRead: "클로렐라·두피 케어 메시지와 빠른 워터 제형 컨디셔닝을 결합한 제품입니다. 두피 부담을 낮추면서 모발 엉킴을 줄이는 포지션입니다.",
+        achievement: "쿠팡 상품평 2,600건대와 올리브영 더블 기획 노출이 확인됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "쿠팡 리뷰·가격, 올리브영 평점 4.7·리뷰 2,821건, 화해 리뷰/성분 페이지 확인. 사용자 제공 올리브영 상세 캡처 기준 ㈜프로브엠 임상연구센터 사용성 평가 확인. 쿠팡 세트 상품 고시에서 제조/책임판매 `(주)서울화장품 / 달리프(주)` 확인.",
+        sources: ["올리브영", "쿠팡", "화해", "사용자 제공 올리브영 상세 캡처", "셀프뷰티 비교 콘텐츠"]
+      },
+      {
+        image: "assets/orot-hair-products/headspa7-clinic-repair-water-treatment.jpg",
+        brand: "헤드스파7",
+        name: "클리닉 리페어 워터 트리트먼트 350ml+40ml",
+        waterRank: 3,
+        rankScore: 87,
+        rankEvidence: "올리브영 단품 판매, 평점 4.9·리뷰&셔터 5,754건, 다나와·화해 상품 페이지, OATC 피부임상시험센터 인체적용 기기평가가 확인됩니다. 리뷰 규모와 임상 근거가 달리프보다 강해 3위로 올렸습니다.",
+        searchSignal: "검색 신호 중상. 구글 검색에서 올리브영·다나와·화해·브랜드 보도가 확인되고, 유튜브 쇼츠/브랜드 베스트셀러 맥락도 잡힙니다.",
+        slideName: "헤드스파7 클리닉 리페어 워터 트리트먼트",
+        clinicalKey: "헤드스파7 클리닉 리페어 워터 트리트먼트",
+        listPrice: 25000,
+        salePrice: 15000,
+        volume: "350ml+40ml",
+        volumeValue: 390,
+        per100: 3846,
+        type: "wash-off",
+        url: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000207731",
+        links: [
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/goods/getGoodsDetail.do?goodsNo=A000000207731" },
+          { label: "다나와", href: "https://prod.danawa.com/info/?pcode=25295501" },
+          { label: "코리아데파트", href: "https://kr.m.koreadepart.com/item/1710913986" }
+        ],
+        perception: "헤드스파7 브랜드 인지도 덕분에 두피와 모발을 같이 보는 워터 트리트먼트로 인식됩니다.",
+        positive: "두피 브러시형 사용감, 손상모 케어, 시원한 사용감 기대가 강합니다. 올리브영 단품 기준 평점 4.9, 리뷰&셔터 5,754건이 확인됩니다.",
+        negative: "극손상모의 즉각적인 부드러움만 기대하면 모레모류 워터팩과 다르게 느낄 수 있습니다.",
+        clinical: "사용자 제공 올리브영 상세 캡처 기준 OATC피부임상시험센터 인체적용 기기평가가 확인됩니다. 2023.08.29~2023.09.15, 만 20~60세 성인여성 20명 대상, 사용 전과 7초 사용 후 비교이며 개인차 있음 고지가 표시됩니다. 올리브영 상품명과 다나와 스펙에서는 탈모증상완화 기능성 표기도 확인됩니다.",
+        manufacturer: "주식회사 피알앤",
+        seller: "주식회사 피알앤",
+        siliconeStatus: "yes",
+        silicone: "전성분 기준 사이클로펜타실록세인 확인. 워터 제형의 빠른 윤활감과 사용 후 매끄러운 코팅감에 기여하는 실리콘 성분으로 분류했습니다.",
+        functionRead: "프로필렌글라이콜·에탄올·미리스틸알코올 베이스에 사이클로펜타실록세인, 양이온 컨디셔닝 성분, 우유/쌀/귀리/실크/케라틴 등 하이드롤라이즈드 단백질, 세라마이드, 식물오일, 히알루론산 7종, 펩타이드·아미노산을 더한 wash-off 워터 트리트먼트입니다. 7초 사용 후 모발 표면 정돈, 엉킴 완화, 단백질/보습 보강, 두피 기능성 성분 포지션이 함께 보입니다.",
+        achievement: "올리브영 브랜드 페이지에서 클리닉 리페어 워터 트리트먼트 라인 노출이 확인됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "올리브영 단품 URL·가격·평점 4.9·리뷰&셔터 5,754건·탈모증상완화 표기 확인. 사용자 제공 상세 캡처 기준 OATC피부임상시험센터 인체적용 기기평가 확인. 코리아데파트 고시에서 제조사/제조판매업자 `주식회사 피알앤` 확인.",
+        sources: ["올리브영", "다나와", "화해", "코리아데파트", "사용자 제공 올리브영 상세 캡처"]
+      },
+      {
+        image: "assets/orot-hair-products/moremo-miracle-100.jpg",
+        brand: "모레모",
+        name: "앰플 워터 트리트먼트 미라클 100 400ml",
+        waterRank: 6,
+        rankScore: 75,
+        rankEvidence: "글로우픽 리뷰/화해 상품 페이지, 과거 화해·글로우픽·파우더룸 어워드 1위 보도, 모레모 워터 라인 확장 제품이라는 신뢰가 있습니다. 현재 대형 유통 랭킹 신호는 미라클10보다 약해 6위입니다.",
+        searchSignal: "검색 신호 중. 구글/유튜브에서 제품 리뷰와 어워드 보도가 잡히지만, 최근 판매 랭킹 신호는 제한적입니다.",
+        slideName: "모레모 앰플 워터 트리트먼트 미라클 100",
+        clinicalKey: "모레모 앰플 워터 트리트먼트 미라클 100",
+        listPrice: 25400,
+        salePrice: 25400,
+        volume: "400ml",
+        volumeValue: 400,
+        per100: 6350,
+        type: "wash-off",
+        url: "https://moremo.com/products/mini-ampoule-water-treatment-miracle-100",
+        links: [
+          { label: "자사몰", href: "https://moremo.com/products/mini-ampoule-water-treatment-miracle-100" },
+          { label: "화해", href: "https://www.hwahae.co.kr/rankings?english_name=category&theme_id=4540" }
+        ],
+        perception: "미라클 10보다 고영양·앰플 느낌이 강한 확장 라인으로 인식됩니다.",
+        positive: "화해 손상케어 트리트먼트/팩 랭킹 진입과 4.66점대 평점이 강점입니다. 모레모 워터 라인의 카테고리 대표성도 함께 가져갑니다.",
+        negative: "미라클 10 대비 가격·제형 차이를 직접 비교해야 합니다. 대중 리뷰 모수는 미라클 10보다 작습니다.",
+        clinical: "탈모 완화 기능성 트리트먼트로 출시됐고, 실리콘 성분 배제·약산성 제형·피부자극 인체적용시험 무자극 문구가 보도에서 확인됩니다. 다나와 스펙에서는 약산성, 실리콘프리, 탈모증상완화 기능성, 덱스판테놀/판테놀·살리실릭애씨드·멘톨 성분이 확인됩니다.",
+        manufacturer: "㈜세화피앤씨",
+        seller: "㈜세화피앤씨",
+        siliconeStatus: "unknown",
+        silicone: "전성분 전문 확인이 필요합니다.",
+        functionRead: "앰플 워터 포지션이라 수분감과 손상모 컨디셔닝을 더 진하게 말하는 제품으로 해석됩니다.",
+        achievement: "화해 손상케어 트리트먼트/팩 19위 신호와 글로우픽 소비자평점 4.5, 리뷰 261건이 확인됩니다. 쿠팡에서는 200ml 옵션 기준 상품평 1,210건·1,000명 이상 만족 신호가 확인됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "자사몰, 화해, 글로우픽, 다나와, 쿠팡, 출시 보도 확인. 피부자극 인체적용시험은 보도 문구 기준이며 시험기관·기간·대상자 수는 공개 텍스트에 미노출.",
+        sources: ["모레모 자사몰", "화해", "글로우픽", "다나와", "쿠팡", "코스모닝 보도"]
+      },
+      {
+        image: "assets/orot-hair-products/tsubaki-premium-water.jpg",
+        brand: "츠바키",
+        name: "프리미엄 트리트먼트 워터 210ml",
+        slideName: "츠바키 프리미엄 트리트먼트 워터",
+        clinicalKey: "츠바키 프리미엄 트리트먼트 워터",
+        listPrice: 17000,
+        salePrice: 17000,
+        volume: "210ml",
+        volumeValue: 210,
+        per100: 8095,
+        type: "leave-in",
+        url: "https://global.oliveyoung.com/product/detail?prdtNo=GA210002243",
+        links: [
+          { label: "올리브영 글로벌", href: "https://global.oliveyoung.com/product/detail?prdtNo=GA210002243" },
+          { label: "글로우픽", href: "https://www.glowpick.com/products/177896" }
+        ],
+        perception: "뿌리는 트리트먼트, 고데기 전후 수분·정전기 케어로 인식됩니다. 헹구는 워터팩보다는 노워시 트리트먼트 워터에 가깝습니다.",
+        positive: "글로우픽 노워시트리트먼트 2위, 향·분사력·부드러움 평가가 좋습니다.",
+        negative: "헹구는 워터팩이 아니라 지속력·극손상 케어 기대치는 낮춰야 합니다.",
+        clinical: "공개 텍스트 기준 임상센터 고지형 자료는 추가 확인이 필요합니다. 글로우픽 4.5점대, 리뷰 200건대가 확인됩니다.",
+        manufacturer: "파인트데이",
+        seller: "파인트데이코리아㈜",
+        siliconeStatus: "yes",
+        silicone: "Dimethicone 계열 컨디셔닝 성분 포함 제품으로 분류했습니다.",
+        functionRead: "실리콘 컨디셔닝막과 보습·윤기 성분 조합으로 표면 윤활과 광택에 강한 제품입니다.",
+        achievement: "글로우픽 어워드 3회 수상 표기 확인",
+        model: "아일릿 원희 캠페인 확인",
+        confidence: "올리브영 글로벌 이미지·가격, 글로우픽 순위 확인. 국내 올리브영 단품 URL은 추가 확인 필요.",
+        sources: ["올리브영 글로벌", "글로우픽"]
+      },
+      {
+        image: "assets/orot-hair-products/loreal-dream-lengths-wonder-water.png",
+        brand: "로레알파리",
+        name: "드림랭스 8초 매직 워터 트리트먼트",
+        slideName: "로레알파리 드림랭스 8초 매직 워터 트리트먼트",
+        clinicalKey: "로레알파리 드림랭스 8초 매직 워터 트리트먼트",
+        listPrice: NaN,
+        salePrice: NaN,
+        volume: "200ml",
+        volumeValue: 200,
+        per100: NaN,
+        type: "wash-off",
+        url: "https://www.coupang.com/vp/products/6608498755",
+        links: [
+          { label: "쿠팡", href: "https://www.coupang.com/vp/products/6608498755" },
+          { label: "올리브영 기획전", href: "https://www.oliveyoung.co.kr/store/planshop/getPlanShopDetail.do?dispCatNo=500000102030010&trackingCd=Home_Planshop1_3_PROD" },
+          { label: "공식몰", href: "https://www.lorealparisusa.com/hair-care-hair-style/hair-treatments/dream-lengths-8-second-wonder-water-lamellar-rinse-out" }
+        ],
+        perception: "8초 만에 부드러워지는 글로벌 워터 트리트먼트 이미지가 강합니다. 긴머리·노헤어컷 메시지와 붙어 있습니다.",
+        positive: "빠른 사용 시간과 글로벌 브랜드 신뢰가 강점입니다. 과거 올리브영 최초 공개 기획전과 쿠팡 리뷰 353건 신호가 확인됩니다.",
+        negative: "현재 기준 쿠팡은 일시품절/현재 판매 중 아님, 다나와는 가격비교 중지, 올리브영은 단품 판매보다 과거 기획전 신호에 가까워 국내 현재 인기 Top 10에서는 제외하는 게 맞습니다.",
+        clinical: "로레알파리 미국 공식 상세 기준 라멜라 린스아웃 트리트먼트로 즉각 엉킴 완화, 손상모를 매끄럽게 보이게 하는 효과, 실리콘프리·설페이트프리·파라벤프리·컬러세이프 문구가 확인됩니다. 올리브영 기획전에서는 샤워 중 8초 사용, 수분 충전, 실리콘프리 사용감이 확인됩니다. 별도 국내 임상센터 고지형 자료는 확인하지 못했습니다.",
+        manufacturer: "L'Oréal S.A. 계열, 제품 내 별도표기",
+        seller: "엘오케이(유)",
+        siliconeStatus: "unknown",
+        silicone: "전성분 전문 확인이 필요합니다.",
+        functionRead: "프로필렌글라이콜, 변성알코올, 지방알코올, 양이온 컨디셔닝 성분, 아미노산/토코페롤 조합의 라멜라 린스아웃 트리트먼트입니다. 짧은 방치 시간과 표면 매끄러움, 엉킴 완화가 핵심입니다.",
+        achievement: "과거 올리브영 최초 공개 기획전, 쿠팡 리뷰 353건, 글로우픽 제품 상세 신호가 확인됩니다. 현재 판매 지속성은 약합니다.",
+        model: "전소미 캠페인 확인",
+        confidence: "올리브영 기획전에서 제품 사용법·실리콘프리 메시지 확인. 로레알파리 미국 공식 상세에서 200ml 용량, 라멜라 린스아웃 포지션, 전성분 확인. 책임판매는 국내 로레알코리아 운영사 엘오케이(유) 기준.",
+        sources: ["올리브영 기획전", "로레알파리 미국 공식몰", "쿠팡", "SSG", "다나와"]
+      },
+      {
+        image: "assets/orot-hair-products/anillo-rosy-night.jpg",
+        brand: "아닐로",
+        name: "로지나잇 리페어 앰플 트리트먼트 200ml",
+        waterRank: 9,
+        rankScore: 64,
+        rankEvidence: "올리브영 세트/공식몰 판매와 향·감성 브랜드 인식은 있지만, 단품 리뷰 규모·랭킹·검색량 신호가 상위 제품 대비 약합니다. 프리미엄 감성 SKU로는 유효하나 인기순위 기준으로는 9위로 낮췄습니다.",
+        searchSignal: "검색 신호 중하. 공식몰과 올리브영 세트, 인스타 헤어템 콘텐츠가 확인되지만 제품명 단독 검색 노출은 크지 않습니다.",
+        slideName: "아닐로 로지나잇 리페어 앰플 트리트먼트",
+        clinicalKey: "아닐로 로지나잇 리페어 앰플 트리트먼트",
+        listPrice: 28000,
+        salePrice: 28000,
+        volume: "200ml",
+        volumeValue: 200,
+        per100: 14000,
+        type: "wash-off",
+        url: "https://www.miintrade.com/es/anillo/1489-rosy-night-repair-ampoule-treatment-8809582989473.html",
+        links: [
+          { label: "상품 상세", href: "https://www.miintrade.com/es/anillo/1489-rosy-night-repair-ampoule-treatment-8809582989473.html" },
+          { label: "올리브영", href: "https://www.oliveyoung.co.kr/store/search/getSearchMain.do?query=%EC%95%84%EB%8B%90%EB%A1%9C%20%EB%A1%9C%EC%A7%80%EB%82%98%EC%9E%87%20%EB%A6%AC%ED%8E%98%EC%96%B4%20%EC%95%B0%ED%94%8C%20%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8" }
+        ],
+        perception: "기능성 워터팩보다는 향·비건·감성 패키지까지 같이 소비되는 앰플 트리트먼트로 인식됩니다.",
+        positive: "향, 로즈힙 오일, 자연유래 오일, 선물감 있는 이미지가 강합니다.",
+        negative: "가격대가 높아 가성비형 워터트리트먼트와 직접 비교하면 불리합니다.",
+        clinical: "올리브영 상품명에서 손상모 즉각 케어·단백질·물미역 워터 트리트먼트 포지션이 확인됩니다. 인터참코리아 제품 상세에서는 고농축 앰플이 손상된 큐티클 사이에 영양을 공급하고, 미열과 함께 크림이 모발·두피 보호막을 형성한다는 설명이 확인됩니다. 공개 텍스트 기준 별도 임상센터 고지형 자료는 확인하지 못했습니다.",
+        manufacturer: "제품 내 별도 표기",
+        seller: "㈜메디쿼터스",
+        siliconeStatus: "unknown",
+        silicone: "전성분 전문 확인이 필요합니다.",
+        functionRead: "오일 기반 영양감과 물과 만나 크림화되는 앰플 제형을 내세우는 제품으로 해석됩니다.",
+        achievement: "SNS 향기템 콘텐츠에서 반복 노출",
+        model: "현 공식 광고모델 미확인",
+        confidence: "올리브영 단품 URL·가격, 인터참코리아 제품 설명, 화해 리뷰 신호 확인. 아닐로 공식몰 상품고시에서 화장품제조업자 `제품 내 별도 표기`, 화장품책임판매업자 `㈜메디쿼터스` 확인.",
+        sources: ["올리브영", "인터참코리아", "화해", "MiiN Trade"]
+      },
+      {
+        image: "assets/orot-hair-products/jsoop-water-treatment.jpg",
+        brand: "제이숲",
+        name: "단백질 워터 트리트먼트 로즈테라피 500ml",
+        waterRank: 7,
+        rankScore: 70,
+        rankEvidence: "제이숲 자사몰 판매, 올리브영 단품 판매, 다나와/쿠팡 상품 노출, 장기 판매와 대용량·가성비 신호가 있습니다. 다만 현재 쿠팡 단품은 일시품절 신호가 있고 검색/소셜 화제성은 상위권보다 낮아 7위로 유지했습니다.",
+        searchSignal: "검색 신호 중. 자사몰·올리브영·다나와·쿠팡 노출은 확인되지만 제품명 단독 최근 소셜 확산은 제한적입니다.",
+        slideName: "제이숲 단백질 워터 트리트먼트 로즈테라피",
+        clinicalKey: "제이숲 단백질 워터 트리트먼트 로즈테라피",
+        listPrice: 19900,
+        salePrice: 19900,
+        volume: "500ml",
+        volumeValue: 500,
+        per100: 3980,
+        type: "wash-off",
+        url: "https://www.jsoop.co.kr/m/product.html?branduid=2083829&search=%C5%BB%B8%F0&sort=&xcode=038&mcode=002&scode=002&GfDT=bmp4W1g%3D&srsltid=AfmBOopL0-ReSr1faebbNaccW0Aobhn1OeWfho84enwB-NevSHtgpUGy",
+        links: [
+          { label: "자사몰", href: "https://www.jsoop.co.kr/m/product.html?branduid=2083829&search=%C5%BB%B8%F0&sort=&xcode=038&mcode=002&scode=002&GfDT=bmp4W1g%3D&srsltid=AfmBOopL0-ReSr1faebbNaccW0Aobhn1OeWfho84enwB-NevSHtgpUGy" },
+          { label: "다나와", href: "https://prod.danawa.com/info/?pcode=10304160" },
+          { label: "SSG", href: "https://www.ssg.com/search.ssg?query=%EC%A0%9C%EC%9D%B4%EC%88%B2%20%EB%8B%A8%EB%B0%B1%EC%A7%88%20%EC%9B%8C%ED%84%B0%20%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8" }
+        ],
+        perception: "모레모 이후 찾는 대용량·가성비 워터트리트먼트로 인식됩니다.",
+        positive: "대용량, 쿨링감, 빠른 부드러움 체감 후기가 있습니다. 500ml 기준 100ml당 가격 접근성이 좋습니다.",
+        negative: "프리미엄 향·브랜드력보다 실용성 중심이라 감성 포지션은 약합니다.",
+        clinical: "공개 상세 기준 기관·기간·대상자 수가 있는 임상시험은 확인하지 못했습니다. 다만 다나와 스펙에서 기능성인증: 탈모증상완화, 주요 성분 덱스판테놀/판테놀·나이아신아마이드·살리실릭애씨드가 확인됩니다. 코리아데파트 상세 텍스트에서는 3가지 탈모증상 완화 기능성 고시 성분, 자체 미열 스팀팩 효과, 두피부터 모발까지 원스텝 케어, 상전환 기술이 확인됩니다.",
+        manufacturer: "㈜디킨코스메틱",
+        seller: "㈜제이숲",
+        siliconeStatus: "unknown",
+        silicone: "전성분 전문 확인이 필요합니다.",
+        functionRead: "덱스판테놀, 판테놀, 나이아신아마이드, 살리실릭애씨드 노출 확인. 두피 기능성 성분 조합이 핵심입니다.",
+        achievement: "다나와 등록월 2020.01, 장기 판매 신호 확인",
+        model: "현 공식 광고모델 미확인",
+        confidence: "다나와 가격·용량·기능성인증·주요성분, 올리브영 리뷰 1,700건대, 코리아데파트 상세 설명 확인. 사용자 제공 상세 고시 캡처 기준 제조업자 `㈜디킨코스메틱`, 책임판매업자 `㈜제이숲` 확인.",
+        sources: ["올리브영", "다나와", "제이숲 공식몰", "코리아데파트", "사용자 제공 상세 고시 캡처"]
+      },
+      {
+        image: "assets/orot-hair-products/truelab-angeling-water-treatment.png",
+        brand: "정직한실험실",
+        name: "트루랩 엔젤링 워터 트리트먼트 210ml",
+        waterRank: 5,
+        rankScore: 81,
+        rankEvidence: "다이소몰 단품 상세 기준 5,000원, 평점 4.8·리뷰 877건, 글로우픽 4.44·리뷰 27건, 다이소 접근성과 피엔케이 임상 신호가 확인됩니다. 검색/소셜 신호는 크지 않지만 현재 구매 접근성과 리뷰 신호가 강해 4위로 올렸습니다.",
+        searchSignal: "검색 신호 중. 다이소몰·글로우픽·블로그 후기가 잡히며, ‘다이소 워터 트리트먼트’ 맥락에서 발견성이 있습니다. 인스타 신호는 제한적입니다.",
+        slideName: "정직한실험실 트루랩 엔젤링 워터 트리트먼트",
+        clinicalKey: "정직한실험실 트루랩 엔젤링 워터 트리트먼트",
+        listPrice: 5000,
+        salePrice: 5000,
+        volume: "210ml",
+        volumeValue: 210,
+        per100: 2381,
+        type: "wash-off",
+        url: "https://www.daisomall.co.kr/pd/pdr/SCR_PDR_0001?pdNo=1060496",
+        links: [
+          { label: "다이소몰", href: "https://www.daisomall.co.kr/pd/pdr/SCR_PDR_0001?pdNo=1060496" },
+          { label: "글로우픽", href: "https://www.glowpick.com/products/177121" },
+          { label: "다나와", href: "https://prod.danawa.com/info/?pcode=77828252" }
+        ],
+        perception: "다이소에서 테스트하기 좋은 저가 워터트리트먼트로 인식됩니다.",
+        positive: "낮은 가격, 엔젤링 표현, 다이소 접근성이 장점입니다. 다이소몰 브랜드 페이지 기준 별점 4.8, 리뷰 871건, 현재 순위 4위 신호가 확인됩니다.",
+        negative: "리뷰 규모가 아직 작고, 프리미엄 손상 케어 기대치는 낮춰야 합니다.",
+        clinical: "다이소몰 상세 및 사용자 제공 캡처 기준 피엔케이피부임상연구센타㈜ 시험이 확인됩니다. 2024.09.02~09.18, 인모트레스 대상 사용 전·사용 직후·사용 24시간 후 비교 조건이며 일시적 효과로 고지됩니다. 다이소몰 메타 설명에서는 사용 후 즉각적으로 모발 겉 단백질 결합력 661% UP, 모발 속 단백질 결합력 137% UP, 모발 겉·속 단백질 결합력 개선 도움 문구가 확인됩니다.",
+        manufacturer: "상세페이지 참조",
+        seller: "상세페이지 참조",
+        siliconeStatus: "no",
+        silicone: "전성분 기준 다이메티콘·아모다이메티콘·사이클로펜타실록세인 등 전통적 실리콘명 성분은 보이지 않습니다. 프로필렌글라이콜·미리스틸알코올·세트리모늄클로라이드 중심의 워터 컨디셔닝 제형으로 분류했습니다.",
+        functionRead: "프로필렌글라이콜·변성알코올·미리스틸알코올 베이스에 세트리모늄클로라이드, 살리실릭애씨드, 덱스판테놀, 나이아신아마이드, 식물오일 5종, 꽃/식물 추출물, 히알루론산 복합체를 더한 실리콘 프리형 워터 트리트먼트입니다. 두피 기능성 성분과 모발 표면 컨디셔닝, 보습·윤기 보조에 초점이 있습니다.",
+        achievement: "정직한실험실 트루랩 7종 다이소 론칭 보도, 다이소몰 별점 4.8·리뷰 871건·현재 순위 4위, 글로우픽 헤어트리트먼트 41위·정직한실험실 5위가 확인됩니다.",
+        model: "현 공식 광고모델 미확인",
+        confidence: "다이소몰 가격·별점·리뷰·순위, 글로우픽 가격·리뷰·랭킹 확인. 다이소몰 상세/메타와 사용자 제공 캡처 기준 피엔케이피부임상연구센타㈜ 단백질 결합력 임상 확인. 다이소몰 고시에서 제조업자/책임판매업자 항목은 `상세페이지 참조`로 노출.",
+        sources: ["다이소몰", "글로우픽", "론칭 보도"]
+      },
+      {
         image: "assets/orot-hair-products/chaewoodam.png",
         brand: "씨드비",
         name: "채우담 모발 영양 트리트먼트 300ml",
+        waterRank: 10,
+        rankScore: 61,
+        rankEvidence: "쿠팡/자사몰 리뷰와 임상 근거는 강하지만 올리브영 중심 대중 신호가 약하고, 제품명 검색/소셜 확산도는 낮습니다. 홈쇼핑·자사몰형 니치 제품으로 보고 10위로 조정했습니다.",
+        searchSignal: "검색 신호 하~중. 씨드비 브랜드 인스타와 자사몰/쿠팡 신호는 있으나 ‘채우담 워터 트리트먼트’ 단독 검색 확산은 제한적입니다.",
         slideName: "채우담 워터 트리트먼트",
         clinicalKey: "씨드비 채우담 모발 영양 트리트먼트",
         listPrice: 26000,
@@ -1156,14 +1532,14 @@
         positive: "꾸덕한 크림 제형과 마블 비주얼, 향, 사용 후 부드러움 때문에 ‘홈클리닉 느낌’으로 만족했다는 리뷰가 있습니다. 건조하고 푸석한 모발에 보습·단백질감이 느껴지고, 쿠팡 리뷰 요약에서도 머릿결이 부드러워진다는 응답 비중이 높게 보입니다.",
         negative: "향과 잔향 호불호가 크고, 제형이 무거워 떡짐이나 두피·등 트러블을 언급하는 리뷰가 있습니다. 일부는 착색/색 묻어남을 걱정하거나, 기대한 ‘1초 복구’만큼의 극적인 차이는 없고 오히려 뻣뻣하게 느꼈다고 평가합니다.",
         clinical: "무신사/유통 상세 기준 ‘1초 데미지 케어’, ‘6대 극손상모 개선’, LPP 단백질 중심 카피가 확인됩니다. 다만 현재 공개 텍스트에서 시험기관명·기간·대상자 수가 확인되지 않아, 상세 이미지 재확인 전까지는 인체적용시험 기관 미노출로 분류했습니다.",
-        manufacturer: "상품고시 이미지 확인 필요",
-        seller: "바이오레시피 판매원 상세 고시 확인 필요",
+        manufacturer: "상세페이지참조, 제조자/수입여부: 우신화장품",
+        seller: "상세페이지참조",
         siliconeStatus: "yes",
         silicone: "마블 헤어팩류 특성상 실리콘/폴리머 코팅감을 전면에 둔 제품으로 분류. 공개 텍스트에서는 전성분 이미지 원문이 필요하지만, 쿠팡·유통 리뷰의 ‘크림처럼 되직한 질감/부드러움’과 단백질 헤어팩 포지션을 함께 반영했습니다.",
         functionRead: "되직한 크림 베이스와 LPP/단백질 카피로 손상모 표면을 빠르게 정돈하고, 보습·코팅·엉킴 완화 체감을 주는 제품입니다.",
         achievement: "에이블리에서 ‘품절대란/전체랭킹 1위’ 문구가 확인됩니다. 무신사·쿠팡·롯데아이몰 등으로 확산된 SNS형 헤어팩입니다.",
         model: "현 공식 광고모델 미확인",
-        confidence: "가격은 초기 기준. 성과 일부 확인. 전성분/제조사 보강 필요.",
+        confidence: "가격은 초기 기준. 롯데홈쇼핑 고시에서 화장품 제조/책임판매 항목은 상세페이지참조, 제조자/수입여부는 우신화장품으로 확인. 전성분 원문 보강 필요.",
         sources: ["무신사", "에이블리", "롯데아이몰"]
       },
       {
@@ -1396,13 +1772,17 @@
         image: "assets/orot-hair-products/bproject.jpg",
         brand: "비프로젝트",
         name: "스테이 헤어 워터 트리트먼트 400ml",
+        waterRank: 8,
+        rankScore: 67,
+        rankEvidence: "글로우픽 4.61·리뷰 113건·헤어트리트먼트 22위·비프로젝트 1위, 자사몰 판매와 화해 리뷰 신호가 있습니다. 대형 유통 리뷰 모수는 작지만 랭킹/평점이 좋아 8위로 올렸습니다.",
+        searchSignal: "검색 신호 중하. 글로우픽·자사몰·화해와 인스타 브랜드 계정 노출은 확인되지만 대중 검색량은 제한적입니다.",
         slideName: "비프로젝트 스테이 헤어 워터 트리트먼트",
         listPrice: 40000,
         salePrice: 34000,
         volume: "400ml",
         volumeValue: 400,
         per100: 8500,
-        type: "leave-in",
+        type: "wash-off",
         url: "https://bproject.co.kr/product/%EC%8A%A4%ED%85%8C%EC%9D%B4-%ED%97%A4%EC%96%B4-%EC%9B%8C%ED%84%B0-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8/18/",
         links: [
           { label: "자사몰", href: "https://bproject.co.kr/product/%EC%8A%A4%ED%85%8C%EC%9D%B4-%ED%97%A4%EC%96%B4-%EC%9B%8C%ED%84%B0-%ED%8A%B8%EB%A6%AC%ED%8A%B8%EB%A8%BC%ED%8A%B8/18/" },
@@ -1419,7 +1799,7 @@
         functionRead: "워터 트리트먼트 제형으로 빠른 도포와 헹굼, LPP/비오틴/두피·모발 케어 카피를 통해 가벼운 컨디셔닝과 수분·영양감을 주는 제품입니다.",
         achievement: "공식 이미지에 Allure Korea 2023 Best of Beauty Clean Winner, Vegan 마크가 노출됩니다.",
         model: "현 공식 광고모델 미확인",
-        confidence: "가격·용량·성과 마크 확인. 상세 이미지 기준 ㈜스킨메드 임상시험센터 두피 보습/피부 저자극 시험 확인. 전성분/제조사 보강 필요.",
+        confidence: "가격·용량·성과 마크 확인. 상세 이미지 기준 ㈜스킨메드 임상시험센터 두피 보습/피부 저자극 시험 확인. 제조/책임판매는 공식몰 고시 기준으로 정리. 전성분 원문은 추가 확인 필요.",
         sources: ["비프로젝트 공식몰", "다나와 가격비교", "화해 검색 스니펫"]
       }
     ];
@@ -1432,15 +1812,123 @@
     const reset = document.getElementById("reset");
     const saveColumns = document.getElementById("saveColumns");
     const resetColumns = document.getElementById("resetColumns");
-    let sort = { key: "salePrice", dir: "asc" };
+    let sort = { key: "waterRank", dir: "asc" };
 
     const won = value => Number.isFinite(value) ? `${value.toLocaleString()}원` : "확인 필요";
+
+    const ingredientTextByKey = {
+      "그래비티 헤어리프팅 워터 트리트먼트": {
+        source: "올리브영 상품고시와 동일 고시가 노출된 IBSPOT/W컨셉 상세",
+        complete: true,
+        text: "프로필렌글라이콜, 에탄올, 미리스틸알코올, 정제수, 사이클로펜타실록세인, 스테아트라이모늄클로라이드, 세트리모늄클로라이드, 베헨트라이모늄클로라이드, 부틸렌글라이콜, 알진, 바이오틴, 하이드롤라이즈드케라틴, 소듐하이알루로네이트, 탄닉애씨드, 실크, 히아루론산, 아이소프로필알코올, 1,2-헥산다이올, 카프릴릴글라이콜, 향료"
+      },
+      "모레모 워터 트리트먼트 미라클 10": {
+        source: "시코르/G마켓/옥션 상품고시 및 성분 분석 페이지",
+        complete: false,
+        text: "부틸렌글라이콜, 변성알코올, 프로필렌글라이콜, 정제수, 글리세린, 하이드롤라이즈드콜라겐, 미리스틸알코올, 스테아트라이모늄클로라이드, 향료, 세트리모늄클로라이드, 다이카프릴릴카보네이트, 하이드록시에틸우레아, 하이드롤라이즈드실크, 하이드롤라이즈드케라틴 외. 전성분 후반부는 최신 상품고시 원문 재확인 필요."
+      },
+      "로레알파리 드림랭스 8초 매직 워터 트리트먼트": {
+        source: "로레알파리 미국 공식 상세",
+        complete: true,
+        text: "PROPYLENE GLYCOL, ALCOHOL DENAT., MYRISTYL ALCOHOL, AQUA / WATER / EAU, PARFUM / FRAGRANCE, DICAPRYLYL CARBONATE, CETRIMONIUM CHLORIDE, BEHENTRIMONIUM CHLORIDE, ISOPROPYL ALCOHOL, HEXYL CINNAMAL, BENZYL SALICYLATE, LINALOOL, BENZYL ALCOHOL, LIMONENE, ALPHA-ISOMETHYL IONONE, HYDROXYPROPYLTRIMONIUM HYDROLYZED WHEAT PROTEIN, COUMARIN, CITRONELLOL, HYDROXYCITRONELLAL, GERANIOL, TOCOPHEROL, ARGININE PCA, PHENOXYETHANOL"
+      },
+      "아닐로 로지나잇 리페어 앰플 트리트먼트": {
+        source: "아닐로 공식몰 상품고시",
+        complete: true,
+        text: "프로필렌글라이콜, 변성알코올, 정제수, 미리스틸알코올, 세틸알코올, 스테아트라이모늄클로라이드, 향료, 폴리쿼터늄-11, 쿼터늄-52, 카프릴릭/카프릭트라이글리세라이드, 베헨트라이모늄클로라이드, 다이프로필렌글라이콜, 카프릴릴글라이콜, 에틸헥실글리세린, 팔미타미도프로필트라이모늄클로라이드, 지치뿌리추출물, 동백나무씨오일, 부틸렌글라이콜, 글리세린, 다이소듐이디티에이, 1,2-헥산다이올, 아르간커넬오일, 아사이팜열매오일, 코튼씨오일, 비타민나무오일, 복숭아씨오일, 다마스크장미추출물, 맥주효모추출물, 하이드롤라이즈드보리단백질, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드귀리단백질, 하이드롤라이즈드완두콩단백질, 하이드롤라이즈드감자단백질, 하이드롤라이즈드쌀겨단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드콩단백질, 하이드롤라이즈드스위트아몬드단백질, 하이드롤라이즈드밀단백질, 로즈힙열매오일, 알란토인, 판테놀, 류신, 페닐알라닌, 메티오닌, 라이신, 히스티딘, 아이소류신, 발린, 트레오닌, 카퍼트라이펩타이드-1, 트립토판, 아세틸헥사펩타이드-8, 팔미토일펜타펩타이드-4, 팔미토일테트라펩타이드-7, 팔미토일트라이펩타이드-1, 세라마이드엔피, 리날룰, 하이드록시시트로넬알, 리모넨, 알파-아이소메틸아이오논, 시트로넬올, 제라니올"
+      },
+      "헤드스파7 클리닉 리페어 워터 트리트먼트": {
+        source: "사용자 제공 올리브영 상세 상품고시 캡처",
+        complete: true,
+        text: "프로필렌글라이콜, 에탄올, 미리스틸알코올, 정제수, 사이클로펜타실록세인, 스테아트라이모늄클로라이드, 세트리모늄클로라이드, 우유단백질추출물, 아이소프로필알코올, 멘톨, 소듐락테이트, 살리실릭애씨드, 덱스판테놀, 부틸렌글라이콜, 베헨트라이모늄클로라이드, 다이프로필렌글라이콜, 인도멀구슬나무추출물, 1,2-헥산다이올, 황련추출물, 글리세린, 드럼스틱씨오일, 레시틴, 다이포타슘글리시리제이트, 콜레스테롤, 하이드롤라이즈드콘씨드단백질, 알지닌, 하이드롤라이즈드호호바단백질, 하이드롤라이즈드우유단백질, 하이드롤라이즈드쌀단백질, 하이드롤라이즈드보리단백질, 하이드롤라이즈드귀리단백질, 시스테인, 세라마이드엔피, 병풀추출물, 시어버터추출물, 하이드롤라이즈드실크, 호호바씨오일, 해바라기씨오일, 포도씨오일, 퀸즈랜드넛오일, 올리브오일, 아르간커넬오일, 비피다발효여과물, 바이오틴, 바오밥나무씨오일, 망고추출물, 류코노스톡/무발효여과물, 락토코쿠스발효물, 락토바실러스발효물, 동백나무씨오일, 달맞이꽃오일, 녹차씨오일, 알로에베라잎추출물, 소듐하이알루로네이트, 하이드롤라이즈드케라틴, 하이드롤라이즈드옥수수단백질, 하이드롤라이즈드아마란스단백질, 하이드롤라이즈드블래더랙단백질, 하이드롤라이즈드감자단백질, 쌀단백질, 스위트아몬드단백질, 들콩단백질, 귀리단백질추출물, 에틸헥실글리세린, 하이알루로닉애씨드, 하이드롤라이즈드하이알루로닉애씨드, 하이드롤라이즈드소듐하이알루로네이트, 하이드록시프로필트라이모늄하이알루로네이트, 포타슘하이알루로네이트, 소듐하이알루로네이트크로스폴리머, 헥사펩타이드-9, 팔미토일헥사펩타이드-12, 팔미토일펜타펩타이드-4, 팔미토일트라이펩타이드-5, 팔미토일트라이펩타이드-1, 팔미토일테트라펩타이드-7, 트라이펩타이드-1, 카퍼트라이펩타이드-1, 아세틸헥사펩타이드-8, 아세틸테트라펩타이드-2, 노나펩타이드-1, 류신, 타우린, 아이소류신, 소듐아세틸레이티드하이알루로네이트, 발린, 아스파틱애씨드, 오르니틴, 글루타믹애씨드, 프롤린, 페닐알라닌, 트립토판, 트레오닌, 타이로신, 알라닌, 아스파라진, 시스틴, 세린, 메티오닌, 라이신, 글루타민, 글라이신, 히스티딘, 향료, 벤질살리실레이트, 시트로넬올, 알파-아이소메틸아이오논"
+      },
+      "정직한실험실 트루랩 엔젤링 워터 트리트먼트": {
+        source: "사용자 제공 다이소몰 상품고시 캡처",
+        complete: true,
+        text: "프로필렌글라이콜, 변성알코올, 정제수, 미리스틸알코올, 세트리모늄클로라이드, 살리실릭애씨드, 덱스판테놀, 나이아신아마이드, 아미노메틸프로판올, 동백나무씨오일, 마카다미아씨오일, 올리브오일, 해바라기씨오일, 호호바씨오일, 1,2-헥산다이올, 부틸렌글라이콜, 소듐하이알루로네이트, 인동덩굴꽃추출물, 장미꽃추출물, 포르피리듐 크루엔툼추출물, 참나리추출물, 풀솜대추출물, 둥근잎나팔꽃추출물, 보리지추출물, 수레국화꽃추출물, 제비꽃꽃추출물, 별꽃추출물, 서양수수꽃다리추출물, 에틸헥실글리세린, 노란왜코스모스꽃/잎/줄기추출물, 동백나무꽃추출물, 살비아추출물, 시넨스국화꽃추출물, 알바프리지어추출물, 해바라기추출물, 나팔수선화추출물, 살구추출물, 세룰라타벚나무꽃추출물, 알로에베라잎추출물, 연꽃꽃추출물, 포타슘하이알루로네이트, 하이드록시프로필트라이모늄하이알루로네이트, 하이드롤라이즈드소듐하이알루로네이트, 하이드롤라이즈드하이알루로닉애씨드, 하이알루로닉애씨드, 펜틸렌글라이콜, 소듐하이알루로네이트크로스폴리머, 소듐아세틸레이티드하이알루로네이트, 향료, 제라니올, 헥실신남알, 알파-아이소메틸아이오논, 시트로넬올, 리날룰, 리모넨"
+      },
+      "씨드비 채우담 모발 영양 트리트먼트": {
+        source: "씨드비 단품 상세/전성분 확인 메모",
+        complete: false,
+        text: "사이클로펜타실록세인, 베헨트라이모늄클로라이드, 세트리모늄클로라이드, 스테아트라이모늄클로라이드, 세틸알코올, 덱스판테놀, 나이아신아마이드 포함. 전성분 전문은 상세 원문에서 재확인 필요."
+      },
+      "리필드 사이토카인 스파 앤 딥리페어 트리트먼트": {
+        source: "리필드 상세/전성분 확인 메모",
+        complete: false,
+        text: "프로필렌글라이콜, 변성알코올, 미리스틸알코올, 베헨트라이모늄클로라이드, 베헨트라이모늄메토설페이트, 세트리모늄클로라이드, C13-15알케인, 아미노산/펩타이드/레시틴류 포함. 전성분 전문은 상세 원문에서 재확인 필요."
+      },
+      "아베다 본드 빌딩 플래쉬 트리트먼트": {
+        source: "아베다 공식 상세/전성분 확인 메모",
+        complete: false,
+        text: "글리세린, 식물성 오일, 브라시카미도프로필다이메틸아민, 하이드록시프로필글루콘아마이드, 하이드록시프로필암모늄글루코네이트, 세트리모늄클로라이드 등 중심. 실리콘명 성분은 확인되지 않음. 전성분 전문은 공식 상세 원문에서 재확인 필요."
+      },
+      "러쉬": {
+        source: "러쉬 미국 공식 상세/전성분 확인 메모",
+        complete: false,
+        text: "아몬드밀크, 코코넛밀크, 오트밀크, 레몬주스, 올리브오일, C13-15 Alkane, 쿼터늄 계열 컨디셔닝 성분 포함. 전성분 전문은 공식 상세 원문에서 재확인 필요."
+      },
+      "올라플렉스": {
+        source: "올라플렉스 공식/전성분 확인 메모",
+        complete: false,
+        text: "Bis-Aminopropyl Diglycol Dimaleate가 핵심 본딩 성분으로 확인됩니다. No.3 Hair Perfector는 실리콘 프리 본딩 트리트먼트로 분류했습니다. 전성분 전문은 공식 상세 원문에서 재확인 필요."
+      },
+      "제이숲 단백질 워터 트리트먼트 로즈테라피": {
+        source: "다나와/코리아데파트 상세 스펙",
+        complete: false,
+        text: "덱스판테놀/판테놀, 나이아신아마이드, 살리실릭애씨드가 주요 성분으로 확인됩니다. 3가지 탈모증상 완화 기능성 고시 성분, 상전환 기술, 미열 스팀팩 효과가 상세 설명에 노출됩니다. 전성분 전문은 원문 추가 확인 필요."
+      },
+      "모레모 앰플 워터 트리트먼트 미라클 100": {
+        source: "다나와/출시 보도/자사몰 상세",
+        complete: false,
+        text: "덱스판테놀/판테놀, 살리실릭애씨드, 엘멘톨/멘톨이 주요 성분으로 확인됩니다. 약산성(pH4.5~6.5), 실리콘프리, 탈모증상완화 기능성으로 분류됩니다. 전성분 전문은 원문 추가 확인 필요."
+      }
+    };
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;");
+    }
+
+    function ingredientContent(product) {
+      const key = product.clinicalKey || product.brand;
+      const ingredient = product.ingredients ? { source: product.ingredientsSource || "제품 상세", text: product.ingredients } : ingredientTextByKey[key] || ingredientTextByKey[product.brand];
+      if (ingredient?.text) return ingredient;
+      const checkedParts = [
+        product.silicone && `실리콘/유사 성분 메모: ${product.silicone}`,
+        product.confidence && `검증 메모: ${product.confidence}`
+      ].filter(Boolean).join("\n\n");
+      return {
+        source: "전성분 원문 미확보",
+        complete: false,
+        text: `전성분 전체 원문 확인 필요.\n\n현재 확보된 성분 단서:\n${checkedParts || "현재 확인된 성분 단서 없음."}`
+      };
+    }
+
+    function functionRead(product) {
+      const ingredient = ingredientContent(product);
+      const summary = ingredient.complete ? "전성분 전체 보기" : "확인된 성분 보기";
+      return `
+        <div class="ingredient-panel">
+          <p>${escapeHtml(product.functionRead)}</p>
+          <details class="ingredient-toggle">
+            <summary>${summary}</summary>
+            <div class="ingredient-copy">${escapeHtml(ingredient.text)}</div>
+            <div class="ingredient-source">출처/상태: ${escapeHtml(ingredient.source)}</div>
+          </details>
+        </div>
+      `;
+    }
 
     function subCategory(product) {
       if (product.brand === "올라플렉스") return "프리샴푸";
       if (product.brand === "클로란") return "샴푸";
+      if (product.type === "wash-off" && product.name.includes("워터") && product.name.includes("트리트먼트")) return "워터 트리트먼트";
       if (["모레모", "씨드비", "리필드"].includes(product.brand) && product.name.includes("트리트먼트")) return "워터 트리트먼트";
       if (product.brand === "비프로젝트") return "워터 트리트먼트";
+      if (product.brand === "츠바키" && product.name.includes("트리트먼트 워터")) return "헤어 미스트";
       if (product.brand === "러쉬") return "헤어 미스트";
       if (product.brand === "실크테라피") return "헤어 오일";
       if (product.type === "leave-in") return "헤어 에센스·밀크·앰플";
@@ -1608,6 +2096,94 @@
           { title: "모발 엉킴 85% 개선", period: "2022.12.30~2023.01.30", target: "모발 엉킴 개선 인체적용시험", count: "20명", note: "올리브영 상세 이미지 기준 사용 전과 3회 사용 후 비교 결과입니다. 개인차가 있을 수 있다는 고지가 함께 표시됩니다." }
         ]
       },
+      "그래비티 헤어리프팅 워터 트리트먼트": {
+        status: "yes",
+        center: "한국인터텍테스팅서비스㈜",
+        items: ["모발 볼륨 사용 전/사용 직후 비교", "순간 볼륨 증가 테스트", "48시간 볼륨 유지 테스트", "KAIST 특허기술 LIFTMAX 308™"],
+        details: [
+          { title: "모발 볼륨 사용 전/사용 직후 비교", period: "2023", target: "모발 볼륨 평가", note: "사용자 제공 상세페이지 캡처 기준 그래비티 헤어리프팅 워터 트리트먼트의 모발 볼륨에 대한 사용 전/사용 직후 비교 DATA가 확인됩니다. 시험 환경에 따른 결과값 차이와 고온에 의한 일시적 효과 한정 고지가 함께 표시됩니다." },
+          { title: "순간 볼륨 증가 테스트", note: "SNS 광고 소재 검색 노출 기준 머리 건조 후 순간 볼륨 40.42% 증가 테스트 완료 문구가 확인됩니다. 상세 원문 재확인 전까지 광고 소재 근거로 분류했습니다." },
+          { title: "48시간 볼륨 유지 테스트", note: "SNS 광고 소재 검색 노출 기준 48시간 볼륨 유지 테스트 완료 문구가 확인됩니다. 시험기관·기간·대상자 수는 공개 텍스트에 미노출입니다." }
+        ],
+        patents: [
+          { title: "LIFTMAX 308™", note: "KAIST 특허기술 기반 모발 리프팅 메시지로 공식/유통 소재에서 확인됩니다. 공개 텍스트에서 특허번호는 확인하지 못해 기술명으로 분류했습니다." }
+        ]
+      },
+      "달리프 클로렐라 베러 루트 워터트리트먼트": {
+        status: "yes",
+        center: "㈜프로브엠 임상연구센터",
+        items: ["즉각적으로 부드러워진 느낌 100%", "모발 끊어짐 감소 된 느낌 100%", "탈모가 개선 된 느낌 100%", "제품의 만족스러움 100%"],
+        details: [
+          { title: "즉각적으로 부드러워진 느낌", period: "2주 사용", target: "사용성 평가", note: "사용자 제공 올리브영 상세 캡처 기준 100%로 표시됩니다." },
+          { title: "모발 끊어짐 감소 된 느낌", period: "2주 사용", target: "사용성 평가", note: "사용자 제공 올리브영 상세 캡처 기준 100%로 표시됩니다." },
+          { title: "탈모가 개선 된 느낌", period: "2주 사용", target: "사용성 평가", note: "사용자 제공 올리브영 상세 캡처 기준 100%로 표시됩니다. 별도로 상품명에서 탈모증상완화 기능성 표기도 확인됩니다." },
+          { title: "제품의 만족스러움", period: "2주 사용", target: "사용성 평가", note: "사용자 제공 올리브영 상세 캡처 기준 100%로 표시됩니다." }
+        ]
+      },
+      "헤드스파7 클리닉 리페어 워터 트리트먼트": {
+        status: "yes",
+        center: "OATC피부임상시험센터",
+        items: ["7초 사용 후 모발 표면 개선", "인체적용 기기평가", "탈모증상완화 기능성"],
+        details: [
+          { title: "7초 사용 후 모발 표면 개선", period: "2023.08.29~2023.09.15", target: "만 20~60세 성인여성", count: "20명", note: "사용자 제공 올리브영 상세 캡처 기준 사용 전과 7초 사용 후 비교 이미지가 확인됩니다. 평가 방식은 인체적용 기기평가이며 개인차 있음 고지가 함께 표시됩니다." },
+          { title: "인체적용 기기평가", period: "2023.08.29~2023.09.15", target: "만 20~60세 성인여성", count: "20명", note: "OATC피부임상시험센터 표기가 확인됩니다. 캡처상 수치보다 전후 모발 표면 이미지 중심으로 노출됩니다." },
+          { title: "탈모증상완화 기능성", note: "올리브영 상품명과 다나와 상세 스펙에서 탈모증상완화 기능성/기능성인증 표기가 확인됩니다." }
+        ]
+      },
+      "모레모 앰플 워터 트리트먼트 미라클 100": {
+        status: "yes",
+        center: "피부자극 인체적용시험 기관명 미노출",
+        items: ["탈모증상완화 기능성", "피부자극 인체적용시험 무자극", "실리콘프리", "약산성 제형"],
+        details: [
+          { title: "탈모증상완화 기능성", note: "출시 보도와 다나와 스펙에서 탈모 완화 기능성 트리트먼트/기능성인증 표기가 확인됩니다." },
+          { title: "피부자극 인체적용시험 무자극", note: "출시 보도에서 피부자극 인체적용시험 무자극 판정 문구가 확인됩니다. 시험기관·기간·대상자 수는 공개 텍스트에 미노출입니다." },
+          { title: "실리콘프리·약산성", note: "출시 보도와 다나와 스펙에서 실리콘프리 및 약산성(pH4.5~6.5) 제형이 확인됩니다." },
+          { title: "고농축 앰플 영양 케어", note: "모레모 자사몰에서 고농축 앰플로 진한 영양 케어 문구가 확인됩니다. 임상 근거가 아닌 제품 기능 카피입니다." }
+        ]
+      },
+      "로레알파리 드림랭스 8초 매직 워터 트리트먼트": {
+        status: "none",
+        center: "국내 임상센터 고지 미확인",
+        items: ["8초 린스아웃 워터 트리트먼트", "실리콘프리", "라멜라 기술", "즉각 엉킴 완화"],
+        details: [
+          { title: "8초 린스아웃 사용", note: "올리브영 기획전과 로레알파리 공식 상세에서 샴푸 후 젖은 모발 길이에 바르고 8초 마사지 후 헹구는 사용법이 확인됩니다." },
+          { title: "실리콘프리 사용감", note: "올리브영 기획전과 로레알파리 공식 상세에서 실리콘프리 문구가 확인됩니다. 공식 상세에는 설페이트프리, 파라벤프리, 컬러세이프 문구도 함께 노출됩니다." },
+          { title: "라멜라 린스아웃 트리트먼트", note: "로레알파리 공식 상세에서 라멜라 기술 기반으로 손상 부위를 타깃해 매끄럽고 엉킴이 풀린 듯한 사용감을 주는 제품으로 설명됩니다." }
+        ]
+      },
+      "아닐로 로지나잇 리페어 앰플 트리트먼트": {
+        status: "none",
+        center: "임상센터 고지 미확인",
+        items: ["손상모 즉각 케어", "앰플 투 크림 제형", "큐티클 영양 공급", "모발·두피 보호막"],
+        details: [
+          { title: "손상모 즉각 케어", note: "올리브영 상품명에서 손상모 즉각 케어, 단백질, 물미역 워터 트리트먼트 포지션이 확인됩니다." },
+          { title: "앰플 투 크림 제형", note: "인터참코리아 제품 상세에서 고농축 앰플이 물과 만나 미열을 내며 크림처럼 변하는 트리트먼트로 설명됩니다." },
+          { title: "큐티클 영양 공급 및 보호막", note: "인터참코리아 상세 기준 손상된 큐티클 사이에 영양을 공급하고 모발·두피에 보호막을 형성한다는 기능 카피가 확인됩니다." }
+        ]
+      },
+      "제이숲 단백질 워터 트리트먼트 로즈테라피": {
+        status: "functional",
+        center: "기능성 인증 표기, 별도 임상센터 미노출",
+        items: ["탈모증상완화 기능성", "3가지 기능성 고시 성분", "상전환 기술", "자체 미열 스팀팩 효과"],
+        details: [
+          { title: "탈모증상완화 기능성", note: "다나와 스펙에서 기능성인증: 탈모증상완화 표기가 확인됩니다. 올리브영에서도 오리지널 워터트리트먼트 로즈테라피 단품 노출이 확인됩니다." },
+          { title: "3가지 기능성 고시 성분", note: "다나와 스펙에서 덱스판테놀/판테놀, 나이아신아마이드, 살리실릭애씨드가 주요 성분으로 확인됩니다. 코리아데파트 상세에서도 3가지 탈모증상 완화 기능성 고시 성분 문구가 확인됩니다." },
+          { title: "상전환 기술", note: "코리아데파트 상세 기준 액체가 온수와 마찰하면 크림으로 변하며, 워터 상태에서는 두피 케어/빠른 영양 공급, 크림 상태에서는 수분 코팅막 형성을 말합니다." },
+          { title: "자체 미열 스팀팩 효과", note: "코리아데파트 상세 기준 자체적으로 발생하는 미열로 스팀팩 효과를 부여한다고 설명됩니다. 기관 고지형 임상은 공개 텍스트에서 확인되지 않았습니다." }
+        ]
+      },
+      "정직한실험실 트루랩 엔젤링 워터 트리트먼트": {
+        status: "yes",
+        center: "피엔케이피부임상연구센타㈜",
+        items: ["모발 겉 단백질 결합력 661% UP", "모발 속 단백질 결합력 137% UP", "모발 겉·속 단백질 결합력 개선 도움", "탈모 증상 완화 가능성 기능성 심사"],
+        details: [
+          { title: "모발 겉 단백질 결합력 개선", period: "2024.09.02~2024.09.18", target: "인모트레스", note: "다이소몰 메타 설명 기준 사용 후 즉각적으로 모발 겉 단백질 결합력 661% UP 문구가 확인됩니다. 사용자 제공 상세페이지 캡처 기준 사용 전·사용 직후·사용 24시간 후 비교이며 일시적 효과로 고지됩니다." },
+          { title: "모발 속 단백질 결합력 개선", period: "2024.09.02~2024.09.18", target: "인모트레스", note: "다이소몰 메타 설명 기준 모발 속 단백질 결합력 137% UP 문구가 확인됩니다." },
+          { title: "모발 겉·속 단백질 결합력 개선 도움", period: "2024.09.02~2024.09.18", target: "인모트레스", note: "다이소몰 상세/메타 설명에서 인체적용시험 결과 모발 겉·속 단백질 결합력 개선에 도움, 모발 단백질 특화 인체적용시험 완료 문구가 확인됩니다." },
+          { title: "기능성 화장품 심사", note: "사용자 제공 다이소몰 상품고시 캡처 기준 식품의약품안전처 심사 필 유무: 유(탈모 증상 완화 가능성)로 표시됩니다." },
+          { title: "제형/제품 메시지", note: "다이소몰 상세 텍스트와 글로우픽 제품정보에서 물과 만나 크림으로 변하며 온열팩 효과를 선사하는 즉각적 손상모 복구 워터 트리트먼트로 설명됩니다." }
+        ]
+      },
       "씨드비 채우담 모발 영양 트리트먼트": {
         status: "yes",
         center: "㈜프로브엠 피부임상연구센터 / 스킨메드",
@@ -1772,9 +2348,12 @@
         details: [{ title: "확인 필요", note: product.clinical }]
       };
       const isNone = data.status === "none";
-      const statusClass = isNone ? "warn" : "good";
-      const statusText = isNone ? "임상 없음" : "임상 있음";
-      const itemLabel = isNone ? "비임상 근거" : "임상항목";
+      const isUnknown = data.status === "unknown";
+      const isFunctional = data.status === "functional";
+      const statusClass = isNone || isUnknown || isFunctional ? "warn" : "good";
+      const statusText = isNone || isFunctional ? "임상 없음" : isUnknown ? "확인 필요" : "임상 있음";
+      const extraStatus = isFunctional ? ' <span class="tag good">기능성 인증</span>' : "";
+      const itemLabel = isNone || isUnknown ? "확인한 정보" : isFunctional ? "기능성/제품 정보" : "임상항목";
       const itemList = data.items.map(item => `<li>${item}</li>`).join("");
       const patentSection = data.patents?.length ? `
           <p><b>[특허·기술]</b> 총 ${data.patents.length}개</p>
@@ -1791,7 +2370,7 @@
       }).join("");
       return `
         <div class="clinical">
-          <p><b>[임상 여부]</b> <span class="tag ${statusClass}">${statusText}</span></p>
+          <p><b>[임상 여부]</b> <span class="tag ${statusClass}">${statusText}</span>${extraStatus}</p>
           <p><b>[임상센터]</b> ${data.center}</p>
           <p><b>[${itemLabel}]</b> 총 ${data.items.length}개</p>
           <ul>${itemList}</ul>
@@ -1808,6 +2387,10 @@
     const headerRow = document.getElementById("headerRow");
     const columns = [
       { id: "image", label: "대표이미지", width: 92, locked: true, render: product => thumb(product) },
+      { id: "waterRank", label: "워터 인기순위", width: 104, locked: true, sortKey: "waterRank", render: product => product.waterRank ? `<span class="rank-badge">${product.waterRank}</span>` : '<span class="muted">-</span>' },
+      { id: "rankScore", label: "인기점수", width: 96, sortKey: "rankScore", render: product => product.rankScore ? `<b>${product.rankScore}</b><span class="muted"> / 100</span>` : '<span class="muted">-</span>' },
+      { id: "rankEvidence", label: "순위 산정 근거", width: 310, render: product => product.rankEvidence || '<span class="muted">워터 Top10 산정 대상 아님</span>' },
+      { id: "searchSignal", label: "검색량·소셜 신호", width: 270, render: product => product.searchSignal || '<span class="muted">-</span>' },
       { id: "product", label: "브랜드명 + 제품명", width: 230, locked: true, cellClass: "product", render: product => `<strong>${product.brand}<br>${product.name}</strong>` },
       { id: "listPrice", label: "정가", width: 112, sortKey: "listPrice", render: product => `<span class="num">${won(product.listPrice)}</span>` },
       { id: "salePrice", label: "상시할인가", width: 126, sortKey: "salePrice", render: product => `<span class="num">${won(product.salePrice)}</span>` },
@@ -1822,7 +2405,7 @@
       { id: "manufacturer", label: "제조사", width: 190, render: product => product.manufacturer },
       { id: "seller", label: "책임판매업자", width: 190, render: product => product.seller },
       { id: "silicone", label: "실리콘/유사 성분", width: 210, render: product => `<div class="tag-list">${siliconeLabel(product.siliconeStatus)}<span>${product.silicone}</span></div>` },
-      { id: "functionRead", label: "전성분 기반 기능 해석", width: 260, render: product => product.functionRead },
+      { id: "functionRead", label: "전성분 기반 기능 해석", width: 320, render: product => functionRead(product) },
       { id: "achievement", label: "성과·샤라웃", width: 250, render: product => product.achievement },
       { id: "model", label: "현재 광고모델", width: 170, render: product => product.model },
       { id: "confidence", label: "검증 메모", width: 190, render: product => product.confidence }
@@ -2021,8 +2604,8 @@
       });
 
       rows = rows.sort((a, b) => {
-        const av = a[sort.key];
-        const bv = b[sort.key];
+        const av = Number.isFinite(a[sort.key]) ? a[sort.key] : Number.POSITIVE_INFINITY;
+        const bv = Number.isFinite(b[sort.key]) ? b[sort.key] : Number.POSITIVE_INFINITY;
         const result = av === bv ? a.brand.localeCompare(b.brand, "ko") : av - bv;
         return sort.dir === "asc" ? result : -result;
       });
